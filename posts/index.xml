@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Posts on Alexandre CANTIN - Blog personnel</title>
-		<link>/posts/</link>
-		<description>Recent content in Posts on </description>
+		<link>https://alexandrecantin.github.io/posts/</link>
+		<description>Recent content in Posts on alexandrecantin.github.io</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>fr-FR</language>
 		<lastBuildDate>Mon, 02 Aug 2021 00:00:00 +0000</lastBuildDate>
-		<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://alexandrecantin.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
 		<item>
 			<title>Svelte : un concurrent de poids face à React-Vue-Angular ?</title>
-			<link>/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/</link>
+			<link>https://alexandrecantin.github.io/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/</link>
 			<pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
-			<guid>/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/</guid>
+			<guid>https://alexandrecantin.github.io/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/</guid>
 			<description>
 			Svelte bouscule l’éco-système des librairies JavaScript actuellement dominé par le trio React, Vue et Angular. Mais que vaut Svelte comparé …
 			</description>
 		</item>
 		<item>
 			<title>Accélérer vos pages Web quelques réflexes ⚡️ (Partie 3)</title>
-			<link>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-3/</link>
+			<link>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-3/</link>
 			<pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-3/</guid>
+			<guid>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-3/</guid>
 			<description>
 			Cet article sera le troisième et dernier d’une série de trois :
  Images et polices personnalisées: https://link.medium.com/Hxw5ex6Zj8 …
@@ -29,9 +29,9 @@
 		</item>
 		<item>
 			<title>Accélérer vos pages Web quelques réflexes ⚡️ (Partie 2)</title>
-			<link>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-2/</link>
+			<link>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-2/</link>
 			<pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-2/</guid>
+			<guid>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-2/</guid>
 			<description>
 			Cet article sera le deuxième d’une série de trois :
  Images et polices personnalisées : https://link.medium.com/Hxw5ex6Zj8 JavaScript et …
@@ -39,9 +39,9 @@
 		</item>
 		<item>
 			<title>Accélérer vos pages Web quelques réflexes ⚡️ (Partie 1)</title>
-			<link>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-1/</link>
+			<link>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-1/</link>
 			<pubDate>Tue, 07 Jul 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-1/</guid>
+			<guid>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-1/</guid>
 			<description>
 			Accélérer vos pages Web : quelques réflexes ⚡️ (partie 1) Cet article sera le premier d’une série de trois :
  Images et polices …
@@ -49,18 +49,18 @@
 		</item>
 		<item>
 			<title>Parcours d’arbre : Depth First &amp; Breadth First 🌳</title>
-			<link>/posts/depth-first-tree-search-and-breadth-first-tree-search/</link>
+			<link>https://alexandrecantin.github.io/posts/depth-first-tree-search-and-breadth-first-tree-search/</link>
 			<pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/depth-first-tree-search-and-breadth-first-tree-search/</guid>
+			<guid>https://alexandrecantin.github.io/posts/depth-first-tree-search-and-breadth-first-tree-search/</guid>
 			<description>
 			Parcours d’arbre : Depth First & Breadth First Le parcours d’arbre est un grand classique lors d’entretiens algorithmiques et bien que cet …
 			</description>
 		</item>
 		<item>
 			<title>Afficher des images webp sur votre site</title>
-			<link>/posts/afficher-des-images-webp-sur-votre-site/</link>
+			<link>https://alexandrecantin.github.io/posts/afficher-des-images-webp-sur-votre-site/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/afficher-des-images-webp-sur-votre-site/</guid>
+			<guid>https://alexandrecantin.github.io/posts/afficher-des-images-webp-sur-votre-site/</guid>
 			<description>
 			.webp vs .jpeg vs .png
 Créé par Google en 2010, le WebP est un format d’image qui se veut - en moyenne - 30% plus léger comparé au JPEG et …
@@ -68,72 +68,72 @@ Créé par Google en 2010, le WebP est un format d’image qui se veut - en moye
 		</item>
 		<item>
 			<title>display-grid: une nouvelle maniere d&#39;organiser vos pages web (1/2)</title>
-			<link>/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-1-2/</link>
+			<link>https://alexandrecantin.github.io/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-1-2/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-1-2/</guid>
+			<guid>https://alexandrecantin.github.io/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-1-2/</guid>
 			<description>
 			Les CSS grid ont été implémentés dans les principaux navigateurs Internet en 2017 (même Edge !). Cette nouvelle spécification simplifie …
 			</description>
 		</item>
 		<item>
 			<title>display-grid: une nouvelle maniere d&#39;organiser vos pages web (2/2)</title>
-			<link>/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-2-2/</link>
+			<link>https://alexandrecantin.github.io/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-2-2/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-2-2/</guid>
+			<guid>https://alexandrecantin.github.io/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-2-2/</guid>
 			<description>
 			Grid-area : le positionnement par zone Pour aller plus loin avec la propriété display: grid, il est possible de nommer les différentes zones …
 			</description>
 		</item>
 		<item>
 			<title>Fermer l&#39;accès de vos containers Docker vers l&#39;extérieur</title>
-			<link>/posts/fermer-lacces-de-vos-containers-docker-vers-lexterieur/</link>
+			<link>https://alexandrecantin.github.io/posts/fermer-lacces-de-vos-containers-docker-vers-lexterieur/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/fermer-lacces-de-vos-containers-docker-vers-lexterieur/</guid>
+			<guid>https://alexandrecantin.github.io/posts/fermer-lacces-de-vos-containers-docker-vers-lexterieur/</guid>
 			<description>
 			L’utilisation d’un reverse proxy grâce à son système de cache, permet d’améliorer de manière importante les performances de notre site. …
 			</description>
 		</item>
 		<item>
 			<title>L&#39;opérateur ?? (&#39;null coalescing&#39;) en JavaScript</title>
-			<link>/posts/loperateur-null-coalescing-en-javascript/</link>
+			<link>https://alexandrecantin.github.io/posts/loperateur-null-coalescing-en-javascript/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/loperateur-null-coalescing-en-javascript/</guid>
+			<guid>https://alexandrecantin.github.io/posts/loperateur-null-coalescing-en-javascript/</guid>
 			<description>
 			Les limites du ‘OU logique’ L’opérateur || (alias OU logique) en Javascript est bien connu pour la mise en place d’une valeur par défaut, …
 			</description>
 		</item>
 		<item>
 			<title>Les temps relatifs avec Intl.RelativeTimeFormat()</title>
-			<link>/posts/les-temps-relatifs-avec-intlrelativetimeformat/</link>
+			<link>https://alexandrecantin.github.io/posts/les-temps-relatifs-avec-intlrelativetimeformat/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/les-temps-relatifs-avec-intlrelativetimeformat/</guid>
+			<guid>https://alexandrecantin.github.io/posts/les-temps-relatifs-avec-intlrelativetimeformat/</guid>
 			<description>
 			Introduite dans Chrome 71, la classe Intl.RelativeTimeFormat propose un formateur de temps relatif (il y a X secondes, dans X minutes, hier, …
 			</description>
 		</item>
 		<item>
 			<title>Optimiser l&#39;affichage des images</title>
-			<link>/posts/optimiser-laffichage-des-images/</link>
+			<link>https://alexandrecantin.github.io/posts/optimiser-laffichage-des-images/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/optimiser-laffichage-des-images/</guid>
+			<guid>https://alexandrecantin.github.io/posts/optimiser-laffichage-des-images/</guid>
 			<description>
 			L’optimisation d’images est un moyen - très - efficace pour réduire le poids de ses pages Web. Toutefois, cette étape d’optimisation (simple …
 			</description>
 		</item>
 		<item>
 			<title>Pourquoi utiliser &#39;font-display: swap&#39; ?</title>
-			<link>/posts/pourquoi-utiliser-font-display-swap/</link>
+			<link>https://alexandrecantin.github.io/posts/pourquoi-utiliser-font-display-swap/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/pourquoi-utiliser-font-display-swap/</guid>
+			<guid>https://alexandrecantin.github.io/posts/pourquoi-utiliser-font-display-swap/</guid>
 			<description>
 			Introduite dans Google Chrome 72 et Firefox 58, la propriété font-display permet de spécifier la police de téléchargement des fontes …
 			</description>
 		</item>
 		<item>
 			<title>Pourquoi utiliser rel=&#39;noopener&#39; avec target=&#39;_blank&#39;</title>
-			<link>/posts/pourquoi-utiliser-rel-noopener-avec-target-_blank/</link>
+			<link>https://alexandrecantin.github.io/posts/pourquoi-utiliser-rel-noopener-avec-target-_blank/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/pourquoi-utiliser-rel-noopener-avec-target-_blank/</guid>
+			<guid>https://alexandrecantin.github.io/posts/pourquoi-utiliser-rel-noopener-avec-target-_blank/</guid>
 			<description>
 			Dans le cadre du SEO, l’attribut rel en HTML est déjà connu pour indiquer à un crawler s’il doit suivre ou non un lien :
 <a href="www.google.com" rel="nofollow">Google</a> Toutefois, …
@@ -141,9 +141,9 @@ Créé par Google en 2010, le WebP est un format d’image qui se veut - en moye
 		</item>
 		<item>
 			<title>Verifier le contraste des textes dans Chrome Devtools</title>
-			<link>/posts/verifier-le-contraste-des-textes-dans-chrome-devtools/</link>
+			<link>https://alexandrecantin.github.io/posts/verifier-le-contraste-des-textes-dans-chrome-devtools/</link>
 			<pubDate>Wed, 01 Apr 2020 00:00:00 +0000</pubDate>
-			<guid>/posts/verifier-le-contraste-des-textes-dans-chrome-devtools/</guid>
+			<guid>https://alexandrecantin.github.io/posts/verifier-le-contraste-des-textes-dans-chrome-devtools/</guid>
 			<description>
 			Dans ses versions récentes (66 à la rédaction de cet article), Chrome permet de vérifier que nos textes disposent d’un contraste suffisant. …
 			</description>

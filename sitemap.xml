@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/</loc>
+    <loc>https://alexandrecantin.github.io/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>https://alexandrecantin.github.io/posts/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/</loc>
+    <loc>https://alexandrecantin.github.io/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-3/</loc>
+    <loc>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-3/</loc>
     <lastmod>2020-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-2/</loc>
+    <loc>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-2/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/accelerer-vos-pages-web-quelques-reflexes-partie-1/</loc>
+    <loc>https://alexandrecantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-1/</loc>
     <lastmod>2020-07-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/depth-first-tree-search-and-breadth-first-tree-search/</loc>
+    <loc>https://alexandrecantin.github.io/posts/depth-first-tree-search-and-breadth-first-tree-search/</loc>
     <lastmod>2020-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/afficher-des-images-webp-sur-votre-site/</loc>
+    <loc>https://alexandrecantin.github.io/posts/afficher-des-images-webp-sur-votre-site/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-1-2/</loc>
+    <loc>https://alexandrecantin.github.io/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-1-2/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-2-2/</loc>
+    <loc>https://alexandrecantin.github.io/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-2-2/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/fermer-lacces-de-vos-containers-docker-vers-lexterieur/</loc>
+    <loc>https://alexandrecantin.github.io/posts/fermer-lacces-de-vos-containers-docker-vers-lexterieur/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/loperateur-null-coalescing-en-javascript/</loc>
+    <loc>https://alexandrecantin.github.io/posts/loperateur-null-coalescing-en-javascript/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/les-temps-relatifs-avec-intlrelativetimeformat/</loc>
+    <loc>https://alexandrecantin.github.io/posts/les-temps-relatifs-avec-intlrelativetimeformat/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/optimiser-laffichage-des-images/</loc>
+    <loc>https://alexandrecantin.github.io/posts/optimiser-laffichage-des-images/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/pourquoi-utiliser-font-display-swap/</loc>
+    <loc>https://alexandrecantin.github.io/posts/pourquoi-utiliser-font-display-swap/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/pourquoi-utiliser-rel-noopener-avec-target-_blank/</loc>
+    <loc>https://alexandrecantin.github.io/posts/pourquoi-utiliser-rel-noopener-avec-target-_blank/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/verifier-le-contraste-des-textes-dans-chrome-devtools/</loc>
+    <loc>https://alexandrecantin.github.io/posts/verifier-le-contraste-des-textes-dans-chrome-devtools/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://alexandrecantin.github.io/categories/</loc>
   </url><url>
-    <loc>/series/</loc>
+    <loc>https://alexandrecantin.github.io/series/</loc>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://alexandrecantin.github.io/tags/</loc>
   </url>
 </urlset>

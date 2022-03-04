@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Categories on Alexandre CANTIN - Blog personnel</title>
-		<link>/categories/</link>
-		<description>Recent content in Categories on </description>
+		<link>https://alexandrecantin.github.io/categories/</link>
+		<description>Recent content in Categories on alexandrecantin.github.io</description>
 		<generator>Hugo -- gohugo.io</generator>
 		<language>fr-FR</language>
-		<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://alexandrecantin.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
 	</channel>
 </rss>
