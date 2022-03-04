@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Les temps relatifs avec Intl.RelativeTimeFormat() | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Introduite dans Chrome 71, la classe Intl.RelativeTimeFormat propose un formateur de temps relatif (il y a X secondes, dans X minutes, hier, maintenant…). …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="Les temps relatifs avec Intl.RelativeTimeFormat()" />
+<meta property="og:description" content="Introduite dans Chrome 71, la classe Intl.RelativeTimeFormat propose un formateur de temps relatif (il y a X secondes, dans X minutes, hier, maintenant&hellip;). Offrant un texte plus convivial, cette mécanique fut utilisée et popularisée par Facebook dans les commentaires et publications de ses utilisateurs. Jusqu&rsquo;ici, il était nécessaire d&rsquo;utiliser des librairies tierces comme Moment.js ou date-fns, impactant le poids de notre page.
+Utilisation par défaut Pour utiliser Intl.RelativeTimeFormat, on débute par créer une nouvelle instance de la classe en indiquant la langue (ou la locale) voulue : fr pour le français, en pour l&rsquo;anglais, es pour l&rsquo;espagnol etc&hellip;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/les-temps-relatifs-avec-intlrelativetimeformat/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Les temps relatifs avec Intl.RelativeTimeFormat()"/>
+<meta name="twitter:description" content="Introduite dans Chrome 71, la classe Intl.RelativeTimeFormat propose un formateur de temps relatif (il y a X secondes, dans X minutes, hier, maintenant&hellip;). Offrant un texte plus convivial, cette mécanique fut utilisée et popularisée par Facebook dans les commentaires et publications de ses utilisateurs. Jusqu&rsquo;ici, il était nécessaire d&rsquo;utiliser des librairies tierces comme Moment.js ou date-fns, impactant le poids de notre page.
+Utilisation par défaut Pour utiliser Intl.RelativeTimeFormat, on débute par créer une nouvelle instance de la classe en indiquant la langue (ou la locale) voulue : fr pour le français, en pour l&rsquo;anglais, es pour l&rsquo;espagnol etc&hellip;"/>
+
+<meta itemprop="name" content="Les temps relatifs avec Intl.RelativeTimeFormat()">
+<meta itemprop="description" content="Introduite dans Chrome 71, la classe Intl.RelativeTimeFormat propose un formateur de temps relatif (il y a X secondes, dans X minutes, hier, maintenant&hellip;). Offrant un texte plus convivial, cette mécanique fut utilisée et popularisée par Facebook dans les commentaires et publications de ses utilisateurs. Jusqu&rsquo;ici, il était nécessaire d&rsquo;utiliser des librairies tierces comme Moment.js ou date-fns, impactant le poids de notre page.
+Utilisation par défaut Pour utiliser Intl.RelativeTimeFormat, on débute par créer une nouvelle instance de la classe en indiquant la langue (ou la locale) voulue : fr pour le français, en pour l&rsquo;anglais, es pour l&rsquo;espagnol etc&hellip;"><meta itemprop="datePublished" content="2020-04-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="749">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">01</span>
+<span class="rest">Apr 2020</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Les temps relatifs avec Intl.RelativeTimeFormat()</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;749&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Introduite dans Chrome 71, la classe <code>Intl.RelativeTimeFormat</code> propose un formateur de temps relatif (<strong>il y a X secondes</strong>, <strong>dans X minutes</strong>, <strong>hier</strong>, <strong>maintenant</strong>&hellip;). Offrant un texte plus convivial,  cette mécanique fut utilisée et popularisée par Facebook dans les commentaires et publications de ses utilisateurs. Jusqu&rsquo;ici, il était nécessaire d&rsquo;utiliser des librairies tierces comme <a href="https://momentjs.com/" target="_blank">Moment.js</a> ou <a href="https://date-fns.org/docs/" target="_blank">date-fns</a>, impactant le poids de notre page.</p>
+<h2 id="utilisation-par-défaut">Utilisation par défaut</h2>
+<p>Pour utiliser <code>Intl.RelativeTimeFormat</code>, on débute par créer une nouvelle instance de la classe en indiquant la langue (ou la <strong>locale)</strong> voulue : <code>fr</code> pour le français, <code>en</code> pour l&rsquo;anglais, <code>es</code> pour l&rsquo;espagnol etc&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rtf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Intl</span>.<span style="color:#a6e22e">RelativeTimeFormat</span>(<span style="color:#e6db74">&#34;fr&#34;</span>);
+</code></pre></div><p>Nous pouvons ensuite utilisé la méthode <code>format</code> en indiquant la valeur numérique et l&rsquo;unité de temps parmi <code>second</code>, <code>minut</code>, <code>hour</code>, <code>day</code>, <code>week</code>,<code>month</code>, <code>quarter</code> ou <code>year</code></p>
+<p>Nous obtenons donc :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rtf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Intl</span>.<span style="color:#a6e22e">RelativeTimeFormat</span>(<span style="color:#e6db74">&#34;fr&#34;</span>);
+
+<span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;dans 0 seconde&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;il y a 0 seconde&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;hour&#34;</span>); <span style="color:#75715e">// &#34;il y a 2 heures&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;day&#34;</span>); <span style="color:#75715e">// &#34;il y a 1 jour&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;day&#34;</span>); <span style="color:#75715e">// &#34;dans 1 jour&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;week&#34;</span>); <span style="color:#75715e">// &#34;dans 2 semaines&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;month&#34;</span>); <span style="color:#75715e">// &#34;il y a 3 mois&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;quarter&#34;</span>); <span style="color:#75715e">// &#34;dans 1 trimestre&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;dans 1 an&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;il y a 1 an&#34;
+</span></code></pre></div><p>Comme on peut le remarquer le texte alterne entre &lsquo;il y a&rsquo; et &lsquo;dans&rsquo; en fonction du caractère négatif ou positif de la valeur numérique en entrée. Toutefois, le rendu s&rsquo;avère très générique et peu convivial au final&hellip; Peut-on mieux faire ? Absolument !</p>
+<h2 id="personnalisation-du-formatage">Personnalisation du formatage</h2>
+<p>La classe <code>Intl.RelativeTimeFormat</code> accueille un second paramètre dans son constructeur sous forme d&rsquo;un objet JavaScript: il s&rsquo;agit d&rsquo;options de personnalisation. Attardons-nous sur deux d&rsquo;entre elles.</p>
+<h3 id="1--loption-numeric">1- L&rsquo;option <strong>numeric</strong></h3>
+<p>L&rsquo;option <code>numeric</code> accepte deux valeurs : <code>always</code> (par défaut) et <code>auto</code>. Elle permet de modifier les conditions d&rsquo;affichage du nombre en entrée. L&rsquo;option par défaut, <code>always</code>, force l&rsquo;apparition de la valeur numérique et c&rsquo;est pour cette raison que nos exemples précédents alternent seulement entre &lsquo;il y a&rsquo; et &lsquo;dans&rsquo;. En utilisant <code>auto</code>, nous obtenons un formatage plus convivial et comparable à celui de Facebook :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rtf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Intl</span>.<span style="color:#a6e22e">RelativeTimeFormat</span>(<span style="color:#e6db74">&#34;fr&#34;</span>, { <span style="color:#a6e22e">numeric</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;auto&#34;</span> });
+
+<span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;maintenant&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;maintenant&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;hour&#34;</span>); <span style="color:#75715e">// &#34;il y a 2 heures&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;hour&#34;</span>); <span style="color:#75715e">// &#34;hier&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;day&#34;</span>); <span style="color:#75715e">// &#34;demain&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;week&#34;</span>); <span style="color:#75715e">// &#34;dans 2 semaines&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;month&#34;</span>); <span style="color:#75715e">// &#34;il y a 3 mois&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;quarter&#34;</span>); <span style="color:#75715e">// &#34;le trimestre prochain&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;l’année prochaine&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;l’année dernière&#34;
+</span></code></pre></div><p>Le verdict reste sans appel : les textes se veulent plus sympathiques qu&rsquo;auparavant ! D&rsquo;ailleurs, j&rsquo;ignore la raison pour laquelle <code>auto</code> n&rsquo;est pas la valeur par défaut&hellip;</p>
+<h3 id="2---loption-style">2 - L&rsquo;option <strong>style</strong></h3>
+<p>L&rsquo;option <code>style</code> impacte la longueur globale de la phrase. Par défaut, <code>long</code> renvoie le texte sans effort de raccourcissement. Les deux autres possibilités  <code>short</code> et <code>narrow</code> abrègent le rendu, à des échelles variables :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rtf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Intl</span>.<span style="color:#a6e22e">RelativeTimeFormat</span>(<span style="color:#e6db74">&#34;fr&#34;</span>, { <span style="color:#a6e22e">style</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;short&#34;</span> });
+
+<span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;dans 0 s&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;il y a 0 s&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;hour&#34;</span>); <span style="color:#75715e">// &#34;il y a 2 h&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;hour&#34;</span>); <span style="color:#75715e">// &#34;il y a 2 h&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;day&#34;</span>); <span style="color:#75715e">// &#34;dans 1 j&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;week&#34;</span>); <span style="color:#75715e">// &#34;dans 2 sem.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;week&#34;</span>); <span style="color:#75715e">// &#34;dans 2 sem.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;minute&#34;</span>); <span style="color:#75715e">// &#34;dans 2 min&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;month&#34;</span>); <span style="color:#75715e">// &#34;il y a 3 m.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;quarter&#34;</span>); <span style="color:#75715e">// &#34;dans 1 trim.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;dans 1 a&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;il y a 1 a&#34;
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rtf2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Intl</span>.<span style="color:#a6e22e">RelativeTimeFormat</span>(<span style="color:#e6db74">&#34;fr&#34;</span>, { <span style="color:#a6e22e">style</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;narrow&#34;</span> });
+
+<span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;+0 s&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;second&#34;</span>); <span style="color:#75715e">// &#34;-0 s&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;hour&#34;</span>); <span style="color:#75715e">// &#34;-2 h&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;hour&#34;</span>); <span style="color:#75715e">// &#34;-2 h&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;day&#34;</span>); <span style="color:#75715e">// &#34;+1 j&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;week&#34;</span>); <span style="color:#75715e">// &#34;+2 sem.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;week&#34;</span>); <span style="color:#75715e">// &#34;+2 sem.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;minute&#34;</span>); <span style="color:#75715e">// &#34;+2 min&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;month&#34;</span>); <span style="color:#75715e">// &#34;-3 m.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;quarter&#34;</span>); <span style="color:#75715e">// &#34;+1 trim.&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;+1 a&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">rtf2</span>.<span style="color:#a6e22e">format</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;year&#34;</span>); <span style="color:#75715e">// &#34;-1 a&#34;
+</span></code></pre></div><h2 id="quid-de-la-compatibilité">Quid de la compatibilité&hellip;</h2>
+<p>Comme toutes nouvelles fonctionnalités, la question de sa compatibilité se pose. Cette dernière n&rsquo;est pas encore totale et il faudra certainement attendre quelques mois/années pour une prise en charge totale :</p>
+<p><figure>
+  <img src="/articles/relative-time-format/compatibilty.png" alt=""  />
+</figure></p>
+<p>Supportés : Chrome - Firefox et Opéra. Non supportés: Edge, Internet Explorer et Safari</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Bien qu&rsquo;encore mal supporté <code>Intl.RelativeTimeFormat</code> reste prometteur pour créer des dates relatives sans librairie tierce.</p>
+<p>On peut toutefois regretter que cette classe ne propose pas de mise à jour automatique du texte en fonction d&rsquo;une date en entrée, un comportement qu&rsquo;il nous faudra recréer soi-même pour le moment. Espérons toutefois que cette modification viendra un jour !</p>
+<h2 id="pour-aller-plus-loin-">Pour aller plus loin :</h2>
+<p><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Intl.RelativeTimeFormat" target="_blank">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Intl.RelativeTimeFormat</a></p>
+<p><a href="https://developers.google.com/web/updates/2018/10/intl-relativetimeformat" target="_blank">https://developers.google.com/web/updates/2018/10/intl-relativetimeformat</a></p>
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>

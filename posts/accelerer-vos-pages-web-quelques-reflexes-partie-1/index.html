@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accélérer vos pages Web quelques réflexes ⚡️ (Partie 1) | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Accélérer vos pages Web : quelques réflexes ⚡️ (partie 1) Cet article sera le premier d’une série de trois :
+ Images et polices personnalisées (cet …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 1)" />
+<meta property="og:description" content="Accélérer vos pages Web : quelques réflexes ⚡️ (partie 1) Cet article sera le premier d’une série de trois :
+ Images et polices personnalisées (cet article) JavaScript et pré-chargement de ressources : https://link.medium.com/xxRg7Yc7j8 Contenus animés et LightHouse (à venir)   Depuis sa naissance en 1989, le Web n’a cessé d’offrir plus de possibilités aux développeurs afin de créer la meilleure expérience possible pour nos utilisateurs : images, vidéos, interfaces dynamiques avec JavaScript, polices personnalisées etc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-07T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 1)"/>
+<meta name="twitter:description" content="Accélérer vos pages Web : quelques réflexes ⚡️ (partie 1) Cet article sera le premier d’une série de trois :
+ Images et polices personnalisées (cet article) JavaScript et pré-chargement de ressources : https://link.medium.com/xxRg7Yc7j8 Contenus animés et LightHouse (à venir)   Depuis sa naissance en 1989, le Web n’a cessé d’offrir plus de possibilités aux développeurs afin de créer la meilleure expérience possible pour nos utilisateurs : images, vidéos, interfaces dynamiques avec JavaScript, polices personnalisées etc."/>
+
+<meta itemprop="name" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 1)">
+<meta itemprop="description" content="Accélérer vos pages Web : quelques réflexes ⚡️ (partie 1) Cet article sera le premier d’une série de trois :
+ Images et polices personnalisées (cet article) JavaScript et pré-chargement de ressources : https://link.medium.com/xxRg7Yc7j8 Contenus animés et LightHouse (à venir)   Depuis sa naissance en 1989, le Web n’a cessé d’offrir plus de possibilités aux développeurs afin de créer la meilleure expérience possible pour nos utilisateurs : images, vidéos, interfaces dynamiques avec JavaScript, polices personnalisées etc."><meta itemprop="datePublished" content="2020-07-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2255">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">07</span>
+<span class="rest">Jul 2020</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Accélérer vos pages Web quelques réflexes ⚡️ (Partie 1)</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;11&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;2255&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h2 id="accélérer-vos-pages-web--quelques-réflexes--partie-1">Accélérer vos pages Web : quelques réflexes ⚡️ (partie 1)</h2>
+<p>Cet article sera le premier d’une série de trois :</p>
+<ul>
+<li>Images et polices personnalisées (cet article)</li>
+<li>JavaScript et pré-chargement de ressources : <a href="https://link.medium.com/xxRg7Yc7j8" target="_blank">https://link.medium.com/xxRg7Yc7j8</a></li>
+<li>Contenus animés et LightHouse (à venir)</li>
+</ul>
+<hr>
+<p>Depuis sa naissance en 1989, le Web n’a cessé d’offrir plus de possibilités aux développeurs afin de créer la meilleure expérience possible pour nos utilisateurs : images, vidéos, interfaces dynamiques avec JavaScript, polices personnalisées etc.</p>
+<p>Toutefois, cela n’est pas sans conséquence : le poids de nos pages a augmenté et il n’est pas rare qu’une page Web dépasse désormais un voire plusieurs mégaoctets.</p>
+<p>D’ailleurs, selon <a href="https://httparchive.org/" target="_blank">Httparchive.org</a>, en dix ans, malgré l’augmentation constante des débits Internet, la vitesse de chargement des pages est restée… la même. De plus, Google considère désormais les performances comme un facteur influençant son algorithme de <em>ranking</em>.</p>
+<p>Dans cet article, nous présenterons ainsi différentes méthodes pour alléger vos pages. Cette liste sera non exhaustive et nous nous concentrerons sur les principaux leviers parmi la centaine (voire les milliers!) envisageables.</p>
+<hr>
+<p><strong>Note :</strong> les éléments présentés ci-dessous visent les utilisateurs arrivant pour la <strong>première fois</strong> sur votre site. Par conséquent, les <em>services workers</em> ne seront pas abordés.</p>
+<p>De même, je n’aborderai pas des techniques que je considère comme déjà acquises comme la minification du CSS et du JavaScript</p>
+<h2 id="-1---les-images">🏞 1 - Les images</h2>
+<h3 id="11---réduction-du-poids--png-et-jpg">1.1 - Réduction du poids : PNG et JPG</h3>
+<p>Omniprésentes, les images sont les principaux responsables de l’alourdissement du Web. Leur bonne gestion doit donc être l’une de vos priorités et j’oserai même dire un <strong>réflexe indispensable</strong> en tant que développeur.</p>
+<p>Pour ma part, je ne peux que vous conseillez d’utiliser <a href="https://tinypng.com/" target="_blank">https://tinypng.com/</a> qui fonctionne via un simple <em>drag and drop</em>.
+<figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_3y69fVWjZdHd5xNlf5nkng.jpeg" alt=""  />
+</figure></p>
+<p>Nous allons maintenant tester son efficacité avec l’image de ce chat au format JPEG et pesant 357 Ko sans optimisation :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_RsRyGVvxIfUif0r7-3ZAsA.jpeg" alt=""  />
+</figure></p>
+<p>Si nous l’optimisons, TinyPng nous indique que le poids du fichier a été réduit de 49%, de 357 Ko à 181 Ko :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_MR6PTW0ukkqglUY4o3I39Q.jpeg" alt=""  />
+</figure></p>
+<p>Un poids divisé de moitié pour un rendu équivalent :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_RsRyGVvxIfUif0r7-3ZAsA.jpeg" alt=""  />
+</figure></p>
+<p>Sachant que ce gain se répète pour chacune image de votre page, on comprend vite l’intérêt crucial de bien optimiser l’ensemble de ses images.</p>
+<h2 id="12---quand-choisir-jpeg-et-png-">1.2 - Quand choisir JPEG et PNG ?</h2>
+<p>Un autre point important est de choisir le bon format en fonction de vos besoins. En effet, ils répondent tous les deux à des exigences différentes et votre choix dépendra de plusieurs facteurs :</p>
+<ul>
+<li>la taille de l’image : pour les “grandes” images (photos notamment), il faudra privilégier le format JPEG. Pour les “petites” images (émoticônes, icônes…), il faudra opter pour les PNG. Et si votre image est de taille “moyenne” ? Il faudra mener votre propre enquête pour déterminer le meilleur choix (en fonction du poids mais aussi des autres critères).</li>
+<li>précision du dessin : le format JPEG, étant un format compressé, les contours perdent en netteté et cela n’est pas forcément souhaitable (graphiques, logo etc.). Il faudra opter pour le format PNG dans ce cas.</li>
+<li>transparence : dans ce cas-là, le PNG est la seule solution 🙂.</li>
+</ul>
+<h2 id="13---réduction-du-poids--svg">1.3 - Réduction du poids : SVG</h2>
+<p>Les images SVG peuvent aussi être optimisées. Pour ma part, j’utilise SVGOMG qui fonctionne lui aussi via drag and drop.</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_AAcgr2TlrIWwSnNj828dvw.jpeg" alt=""  />
+</figure></p>
+<p>Dans l’exemple ci-dessus, on constate que le poids de notre SVG a réduit de 60%, passant de 1.5 Ko à 643 bytes et, même si le résultat reste moins spectaculaire comparé aux PNG et JPG, cela reste toutefois appréciable 🙂.</p>
+<h2 id="14---allez-plus-loin-avec-webp">1.4 - Allez plus loin avec Webp</h2>
+<p>Créé par Google en 2010, le Webp est un format d’image qui se veut - en moyenne - 30% plus léger comparé au JPEG et 25% par rapport au PNG; tout en conservant gardant les effets de transparence pour ce dernier format.</p>
+<p>Le Webp est donc un remplaçant de choix pour tous vos fichiers JPG et au niveau des PNG, Webp étant un format compressé, cela dépendra principalement de la précision du contour que vous souhaitez obtenir.</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_vCjNwPb1f6NpdzzH508EBw.jpeg" alt=""  />
+</figure></p>
+<p>Un des soucis majeur de ce format est son support dans les principaux navigateurs. En effet, bien que Chrome, Firefox et Edge (uniquement dans sa dernière version) acceptent ce format, Safari le supportera dans sa prochaine version :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_tCrFJTKdHbQj3-Y1WxsgeQ.png" alt=""  />
+</figure></p>
+<p>Cela ne doit pas pour autant vous décourager d’utiliser le format Webp et nous verrons plus tard comme gérer les navigateurs non compatibles.</p>
+<p>Pour convertir vos images en Webp, je peux vous conseiller d’utiliser <a href="https://www.xnview.com/fr/xnconvert/" target="_blank">XnConvert</a> qui fonctionne directement sur votre ordinateur (disponible pour Windows/Linux/MacOs). Comme solutions en ligne, <a href="https://ezgif.com/png-to-webp" target="_blank">https://ezgif.com/png-to-webp</a> et <a href="https://ezgif.com/jpg-to-webp" target="_blank">https://ezgif.com/jpg-to-webp</a> fonctionnent très bien 🙂.</p>
+<p>La conversion se réalise en 3 étapes (nous partirons de l’image du chat optimisée précédemment) :</p>
+<ol>
+<li>
+<p>Ajouter les images :
+<figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_Y--_PRA546tRfXDMXaNFbQ.png" alt=""  />
+</figure></p>
+</li>
+<li>
+<p>Cliquer sur l’onglet “Sortie” puis :</p>
+</li>
+</ol>
+<ul>
+<li>Indiquer “{Filename}.png” ou “{Filename}.jpeg” dans le champ “Nom du fichier”. Le choix de ce formatage sera important pour la suite 😉</li>
+<li>Choisir “WEBP-Webp” dans le bloc format</li>
+<li>Décocher la case “Préserver les métadonnées” et cocher “Préserver l’extension”
+<figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_HKM07xjIBoN2RvMUYSoeKg.png" alt=""  />
+</figure></li>
+</ul>
+<ol start="3">
+<li>Pour finir, cliquer sur “Convertir” en bas à droite de la fenêtre :
+<figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_lALHwh7J3k5_B6lIHkiLnw.png" alt=""  />
+</figure></li>
+</ol>
+<p>Nous obtenons ainsi une image avec le nom : [nom-image].jpeg.webp (ou [nom-image].png.webp). Dans notre exemple, le poids est passé de 181 Ko à 149 Ko.</p>
+<h2 id="141---cohabitation-entre-webp-et-pngjpeg-avec-_figure_">1.4.1 - Cohabitation entre Webp et PNG/JPEG avec <em>&lt;figure&gt;</em></h2>
+<p>Introduite en 2015, la balise &lt;picture&gt; permet de spécifier plusieurs règles afin que le navigateur puisse déterminer l&rsquo;image la plus pertinente à télécharger. Plusieurs conditions sont possibles : densité de pixels, dimensions du navigateur&hellip; et le format d&rsquo;image 🙂.</p>
+<p>Pour utiliser &lt;picture&gt;, il suffit de lui associer plusieurs &lt;source&gt; :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">picture</span>&gt;
+  &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">srcset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chat-mignon.webp&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/webp&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">srcset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chat-mignon.jpeg&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image/jpeg&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chat-mignon.jpeg&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+&lt;/<span style="color:#f92672">picture</span>&gt;
+</code></pre></div><p>Dans cet exemple, le navigateur optera pour le format Webp s’il le gère et JPEG dans le cas contraire. L’usage de &lt;picture&gt; est donc d&rsquo;une grande simplicité 🙂.</p>
+<p>Malheureusement, il nous reste le cas d’une image importée via CSS et malheureusement, il n’existe pas d’équivalents à &lt;picture&gt; pour le CSS.</p>
+<p>La solution est alors d’utiliser JavaScript pour déterminer ce support et notamment via ce snippet (proposé par Jake Archibald) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">supportsWebp</span>() {
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">createImageBitmap</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">webpData</span> <span style="color:#f92672">=</span>
+    <span style="color:#e6db74">&#34;data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=&#34;</span>;
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">blob</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">webpData</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">r</span>) =&gt; <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">blob</span>());
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">createImageBitmap</span>(<span style="color:#a6e22e">blob</span>).<span style="color:#a6e22e">then</span>(
+    () =&gt; <span style="color:#66d9ef">true</span>,
+    () =&gt; <span style="color:#66d9ef">false</span>
+  );
+}
+</code></pre></div><p>En fonction de la réponse, vous pourrez ajouter une classe webp ou no-webp à la balise &lt;body&gt; pour, ensuite, au niveau du CSS, utiliser cette classe pour appeler la bonne image :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">no-webp</span> .<span style="color:#a6e22e">cat-background</span> {
+  <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#34;chat-mignon.jpg&#34;</span>);
+}
+
+.<span style="color:#a6e22e">webp</span> .<span style="color:#a6e22e">cat-background</span> {
+  <span style="color:#66d9ef">background-image</span>: url(<span style="color:#e6db74">&#34;chat-mignon.webp&#34;</span>);
+}
+</code></pre></div><h2 id="142---cohabitation-entre-webp-et-pngjpeg-avec-nginx">1.4.2 - Cohabitation entre Webp et PNG/JPEG avec nginx</h2>
+<p>Si vous ne souhaitez pas convertir l’ensemble de vos balises &lt;img /&gt; de votre projet ou d&rsquo;utiliser une classe à la balise &lt;body&gt;, il est possible de délivrer le bon format d&rsquo;image en fonction du support du navigateur et cela grâce à Nginx.</p>
+<p>Pour obtenir ce comportement, la premier prérequis sera de faire cohabiter l’image JPEG/PNG à côté de son équivalent Webp. Nous obtenons ainsi :
+images/</p>
+<pre tabindex="0"><code>- chat.jpeg
+- chat.jpeg.webp
+</code></pre><p>Dans un second temps, nous utiliserons l’instruction <code>map</code> de Nginx pour créer une variable $webp_suffix.
+Cette dernière contiendra .webp ou sera vide en fonction du support de Webp par le navigateur. Ce support sera déterminé suivant le contenu du header HTTP Accept de la requête :</p>
+<pre tabindex="0"><code># Detect if browser accepts .webp images ?
+
+    map $http_accept $webp_suffix {
+      default&quot;&quot;;
+      &quot;~*webp&quot; &quot;.webp&quot;;
+    }
+</code></pre><p>Pour finir, nous utiliserons la commande <code>try_files</code> de Nginx, permettant de tester la présence de plusieurs fichiers successivement et renvoyer le premier trouvé.</p>
+<pre tabindex="0"><code># Handle .webp
+
+    location ~* ^/assets/.+\.(jpe?g|png)$ {
+        root /home/deploy/build/;
+        try_files $uri$webp_suffix $uri =404;
+    }
+</code></pre><p>Ainsi, nous testerons dans l’ordre :</p>
+<p>1 — l’URL de la ressource concaténée avec la valeur <code>$webp_suffix</code> pouvant donc être <code>&lt;nom-image&gt;.jpeg.webp</code> ou <code>&lt;nom-image&gt;.jpeg</code>
+2 - l&rsquo;URL demandée en solution de secours (en cas d&rsquo;absence du fichier Webp notamment)
+3 - Erreur 404</p>
+<p>Nous obtenons un système faisant cohabiter à la fois les images au format JPEG/PNG et Webp, basée sur la prise en charge du format par le navigateur de l’utilisateur.
+D’ailleurs, on constate sur la console de Google Chrome que le fichier reçu est bien une image Webp :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_LFxHOGV5-OPu80NTBwWYdA.png" alt=""  />
+</figure></p>
+<h2 id="15---lazy-loading">1.5 - Lazy-loading</h2>
+<p>Les images les plus légères restent celles qu’on ne télécharge pas. Pour cela, le <em>lazy-loading</em> est la solution toute nommée et consiste à télécharger une ressource seulement si cela s’avère nécessaire. Dans le cas d’une image, l’élément déclenchant son téléchargement sera ainsi son apparition — ou sa proche apparition — dans la zone d’affichage de la page Web.</p>
+<h3 id="151---avec-lazysizes">1.5.1 - Avec Lazysizes</h3>
+<p><a href="https://github.com/aFarkas/lazysizes" target="_blank">Lazysizes</a> est une librairie JavaScript nous facilitant la mise en place du lazy loading d’images. D’une taille compressée de 3.2Ko, son utilisation se veut assez simple en renommant notre attribut <code>src</code> en <code>data-src</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">data-src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;static/logo.jpg&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lazyload&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+</code></pre></div><p>De plus, Lazysize nous permet aussi d’adapter les images en fonction de l’appareil de l’utilisateur (mobile, tablette ou PC).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">img</span>
+  <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lazyload&#34;</span>
+  <span style="color:#a6e22e">data-srcset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;small.jpg 500w, medium.jpg 640w, big.jpg 1024w&#34;</span>
+  <span style="color:#a6e22e">data-src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;medium.jpg&#34;</span>
+/&gt;
+</code></pre></div><p>Simple mais terriblement efficace 🙂.</p>
+<h3 id="152---avec-lattribut-_loading_-de-_img_">1.5.2 - Avec l’attribut <em>loading</em> de <em>img</em></h3>
+<p>La balise img accueille depuis peu un nouvel attribut loading qui, couplé avec la valeur lazy, permet d&rsquo;implémenter nativement un système de lazy loading :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;chat-mignon.png&#34;</span> <span style="color:#a6e22e">loading</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lazy&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+</code></pre></div><p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_k6HB-gq_2rebeOca5utXfQ.png" alt=""  />
+</figure></p>
+<p>Sa prise en compte est donc loin d’être garantie… Toutefois, vous ne perdez rien à implémenter ce nouvel attribut qui sera tout simplement ignoré par les navigateurs non compatibles 🙂 (qui téléchargeront donc directement l’image).</p>
+<hr>
+<h2 id="-2---les-polices-personnalisées">🚨 2 - Les polices personnalisées</h2>
+<p>Relativement récent dans l’histoire du Web, l’ajout des polices personnalisées apporte une touche de personnalisation supplémentaire au design de nos pages. Et même s’elles sont minimes, des optimisations restent possibles.</p>
+<h3 id="21---fonctionnement-des-polices-personnalisées">2.1 - Fonctionnement des polices personnalisées</h3>
+<p>Avant de nous attarder sur les améliorations de performances possibles, il est nécessaire de présenter le fonctionnement des polices personnalisées.</p>
+<p>Tout d’abord, l’inclusion d’une police peut se réaliser de plusieurs manières mais les deux méthodes les plus courantes sont :</p>
+<ul>
+<li>1- L’import direct de la police depuis notre serveur</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Open Sans&#34;</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/fonts/OpenSans-Regular-webfont.woff2&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff2&#34;</span><span style="color:#f92672">),</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/fonts/OpenSans-Regular-webfont.woff&#34;</span><span style="color:#f92672">)</span>
+      <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff&#34;</span><span style="color:#f92672">);</span>
+}
+</code></pre></div><ul>
+<li>2- Via une ressource externe (ici, Google Fonts) :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span>
+  <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&#34;</span>
+  <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>
+/&gt;
+</code></pre></div><p>Dans tous les cas, l’utilisation dans nos styles CSS est identique :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#e6db74">&#34;Open Sans&#34;</span>, <span style="color:#66d9ef">serif</span>;
+}
+</code></pre></div><p>Bien entendu, la police n’est pas directement présente sur le navigateur et doit donc être téléchargée. Mais que se passe-t-il pendant ce temps au niveau de l’affichage ? Figurez-vous que le navigateur n’affiche tout simplement…rien ! Plus exactement, il compense l’absence de la police en la remplaçant par une police invisible dont la taille se veut proche du résultat final (via font-size et font-weight principalement).</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-1/1_hXMneAoYUkwm-vZ_Ym0CTA.png" alt=""  />
+</figure></p>
+<p>Par défaut, cette situation va durer 3 secondes (sur Firefox et Chrome tout du moins) avant que le navigateur bascule sur la seconde police (serif dans notre exemple). Trois secondes pendant lesquelles l’utilisateur ne pourra lire le contenu de votre site…</p>
+<p>Bien sûr, dès que la police sera téléchargée, l’affichage de votre page sera mis à jour (que ce soit avant ou après les 3 secondes de délai).</p>
+<h2 id="22---utilisation-de-display-swap">2.2 - Utilisation de display: swap</h2>
+<p>La règle CSS <code>font-display</code> permet de modifier la politique d&rsquo;import des polices personnalisées, sa valeur par défaut est auto et correspond au scénario décrit précédemment.</p>
+<p>En remplaçant <code>auto</code> par <code>swap</code>, le délai de basculement vers la police de remplacement passe alors de 3 secondes à 100 ms ! Un gain de temps appréciable et réduisant ainsi le Time to first meaningful paint, métrique définie par Google correspondant au temps d&rsquo;apparition du premier contenu pertinent.</p>
+<p>Son utilisation est extrêmement simple.</p>
+<p>Dans notre premier cas d’import, nous ajoutons simplement <code>font-display</code>: swap; dans le bloc <code>@font-face</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">font-face</span> {
+  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Open Sans&#34;</span><span style="color:#f92672">;</span>
+  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/fonts/OpenSans-Regular-webfont.woff2&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff2&#34;</span><span style="color:#f92672">),</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/fonts/OpenSans-Regular-webfont.woff&#34;</span><span style="color:#f92672">)</span>
+      <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">font-display</span><span style="color:#f92672">:</span> <span style="color:#f92672">swap</span><span style="color:#f92672">;</span>
+}
+</code></pre></div><p>Pour Google Fonts, depuis mai 2019, il suffit d’ajouter ‘&amp;display=swap’ dans l’URL d’import pour obtenir, par exemple :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span>
+  <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&amp;display=swap&#34;</span>
+  <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span>
+/&gt;
+</code></pre></div><p>Si vous souhaitez gérer plus finement votre police d’import de polices, font-display autorise d&rsquo;autres valeurs :</p>
+<ul>
+<li>
+<p><strong>font-display: block</strong> -&gt;
+Cette option est semblable au fonctionnement par défaut : 3 secondes de police invisible avant de basculer sur la police de remplacement. Son seul intérêt est de s’assurer que nous ayons bien ces 3 secondes de délai, étant donné que tous les navigateurs peuvent avoir une politique auto différente comparée à celle de Firefox et Chrome.</p>
+</li>
+<li>
+<p><strong>font-display: fallback</strong> -&gt;</p>
+<p>L’option <code>fallback</code> réduit aussi le délai de basculement vers la police de remplacement à 100 ms mais limite aussi la durée de récupération de la police personnalisée à 3 secondes (là où <code>swap</code> n&rsquo;impose pas de durée de temps). Elle permet donc d&rsquo;indiquer au navigateur d&rsquo;arrêter la récupération de la police si son téléchargement s&rsquo;avère trop long.</p>
+</li>
+<li>
+<p><strong>font-display: optional</strong> -&gt;
+Plus radicale que <code>fallback</code>, elle réduit le délai de basculement à 100 ms mais arrête la récupération de la police par la même occasion. Traduction pour le navigateur: &ldquo;Si tu as la police sous la main (donc en cache) tu l&rsquo;utilises, sinon inutile de la récupérer&rdquo;.</p>
+</li>
+</ul>
+<h2 id="fin-de-la-première-partie">Fin de la première partie</h2>
+<p>Nous voici arrivés à la fin de cette première partie consacrée aux images et aux polices personnalisées.</p>
+<p>Dans le prochain épisode, nous aborderons les optimisations liées JavaScript et le pré-chargement de ressources.</p>
+<p>Restez connecté 🙂.</p>
+<h2 id="-aller-plus-loin">🔰 Aller plus loin</h2>
+<h3 id="vidéos-et-articles">Vidéos et articles</h3>
+<p>Voici un ensemble de ressources pour explorer l’univers de l’optimisation des chargements :</p>
+<ul>
+<li>Fast load times : <a href="https://web.dev/fast/" target="_blank">https://web.dev/fast/</a></li>
+<li>Lazy-loading d’images et iframe : <a href="https://web.dev/native-lazy-loading/" target="_blank">https://web.dev/native-lazy-loading/</a></li>
+<li>Web performance made easy (Google I/O ’18) :
+<a href="https://www.youtube.com/watch?v=Mv-l3-tJgGk" target="_blank">https://www.youtube.com/watch?v=Mv-l3-tJgGk</a></li>
+<li>Speed at Scale: Web Performance Tips and Tricks from the Trenches (Google I/O ’19) : <a href="https://www.youtube.com/watch?v=YJGCZCaIZkQ" target="_blank">https://www.youtube.com/watch?v=YJGCZCaIZkQ</a></li>
+<li>Polices personnalisées :
+<a href="https://developers.google.com/web/updates/2016/02/font-display" target="_blank">https://developers.google.com/web/updates/2016/02/font-display</a></li>
+</ul>
+<h3 id="sur-twitter">Sur Twitter</h3>
+<ul>
+<li>Houssein Djirdeh : <a href="https://twitter.com/hdjirdeh" target="_blank">https://twitter.com/hdjirdeh</a></li>
+<li>Addy Osmani : <a href="https://twitter.com/addyosmani" target="_blank">https://twitter.com/addyosmani</a></li>
+<li>Katie Hempenius : <a href="https://twitter.com/katiehempenius" target="_blank">https://twitter.com/katiehempenius</a></li>
+<li>Paul Irish : <a href="https://twitter.com/paul_irish" target="_blank">https://twitter.com/paul_irish</a></li>
+<li>Lighthouse : <a href="https://twitter.com/____lighthouse" target="_blank">https://twitter.com/____lighthouse</a></li>
+</ul>
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>

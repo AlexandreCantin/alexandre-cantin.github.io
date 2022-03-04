@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accélérer vos pages Web quelques réflexes ⚡️ (Partie 3) | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Cet article sera le troisième et dernier d’une série de trois :
+ Images et polices personnalisées: https://link.medium.com/Hxw5ex6Zj8 JavaScript et …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 3)" />
+<meta property="og:description" content="Cet article sera le troisième et dernier d’une série de trois :
+ Images et polices personnalisées: https://link.medium.com/Hxw5ex6Zj8 JavaScript et pré-chargement de ressources : https://link.medium.com/5UQk6msPF8 Contenus animés et LightHouse (cet article)   🎬 5 - Contenus animées : .mp4 et GIF 5.1 - Privilégier les vidéos .mp4 sur les GIF Cette recommandation peut sembler contre-intuitive mais, dans le cas des GIFs, il est nécessaire de les convertir en .mp4 pour diminuer leur poids." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-04T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 3)"/>
+<meta name="twitter:description" content="Cet article sera le troisième et dernier d’une série de trois :
+ Images et polices personnalisées: https://link.medium.com/Hxw5ex6Zj8 JavaScript et pré-chargement de ressources : https://link.medium.com/5UQk6msPF8 Contenus animés et LightHouse (cet article)   🎬 5 - Contenus animées : .mp4 et GIF 5.1 - Privilégier les vidéos .mp4 sur les GIF Cette recommandation peut sembler contre-intuitive mais, dans le cas des GIFs, il est nécessaire de les convertir en .mp4 pour diminuer leur poids."/>
+
+<meta itemprop="name" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 3)">
+<meta itemprop="description" content="Cet article sera le troisième et dernier d’une série de trois :
+ Images et polices personnalisées: https://link.medium.com/Hxw5ex6Zj8 JavaScript et pré-chargement de ressources : https://link.medium.com/5UQk6msPF8 Contenus animés et LightHouse (cet article)   🎬 5 - Contenus animées : .mp4 et GIF 5.1 - Privilégier les vidéos .mp4 sur les GIF Cette recommandation peut sembler contre-intuitive mais, dans le cas des GIFs, il est nécessaire de les convertir en .mp4 pour diminuer leur poids."><meta itemprop="datePublished" content="2020-08-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1441">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">04</span>
+<span class="rest">Aug 2020</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Accélérer vos pages Web quelques réflexes ⚡️ (Partie 3)</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;1441&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Cet article sera le troisième et dernier d’une série de trois :</p>
+<ol>
+<li>Images et polices personnalisées: <a href="https://link.medium.com/Hxw5ex6Zj8" target="_blank">https://link.medium.com/Hxw5ex6Zj8</a></li>
+<li>JavaScript et pré-chargement de ressources : <a href="https://link.medium.com/5UQk6msPF8" target="_blank">https://link.medium.com/5UQk6msPF8</a></li>
+<li>Contenus animés et LightHouse (cet article)</li>
+</ol>
+<hr>
+<h2 id="-5---contenus-animées--mp4-et-gif">🎬 5 - Contenus animées : .mp4 et GIF</h2>
+<h3 id="51---privilégier-les-vidéos-mp4-sur-les-gif">5.1 - Privilégier les vidéos .mp4 sur les GIF</h3>
+<p>Cette recommandation peut sembler contre-intuitive mais, dans le cas des GIFs, il est nécessaire de les convertir en .mp4 pour diminuer leur poids.</p>
+<p>En effet, bien que le format GIF soit un format d’image, il s’agit d’une succession d’images et peut donc être assimilé à une vidéo. Toutefois, contrairement au format .mp4, le format GIF est moins bien optimisé.</p>
+<p>Prenons par exemple, le GIF ci-dessous dont le poids est de 5.1 Mo :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-3/0_f8uexR7rNWS_IATn.gif" alt=""  />
+</figure></p>
+<p>Pour ensuite obtenir un rendu et comportement similaires à ceux d’une image GIF, il est nécessaire d’ajouter les attributs <code>autoplay loop muted playsinline</code> à la balise <code>video</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">video</span> <span style="color:#a6e22e">autoplay</span> <span style="color:#a6e22e">loop</span> <span style="color:#a6e22e">muted</span> <span style="color:#a6e22e">playsinline</span>&gt;
+  &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;video.mp4&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;video/mp4&#34;</span> /&gt;
+&lt;/<span style="color:#f92672">video</span>&gt;
+</code></pre></div><p>Si vous souhaitez aller plus loin, il est aussi possible d’adapter le rendu en fonction de la qualité de la connexion Internet de l’utilisateur avec <code>navigator.connection.effectiveType</code> pour, par exemple, renvoyer une image (optimisée bien entendu) à la place d&rsquo;une vidéo :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">navigator</span>.<span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">effectiveType</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;4g&#34;</span>)
+  <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Video</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;animate-background.mp4&#34;</span> <span style="color:#f92672">/&gt;</span>;
+<span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background.png&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">/&gt;</span>;
+</code></pre></div><p>Malheureusement, cette fonctionnalité est pour le moment très mal supportée par les différents navigateurs :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-3/0_gVZ7Vu2C_aP2ydIb.png" alt=""  />
+</figure></p>
+<h3 id="52--attention-au-player-youtube">5.2 — Attention au player Youtube</h3>
+<p>Youtube fournit un moyen simple d’héberger mais aussi d’intégrer des vidéos dans vos pages via une <em>iframe</em>. Toutefois, cette dernière va télécharger tous un ensemble de fichiers pour un total de 584 Ko !</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-3/0_f905GrPpwM329nZ-.png" alt=""  />
+</figure></p>
+<p>Bien sûr, à ce temps de téléchargement s’additionne le temps de parsing, compilation et d’exécution du navigateur. Qui plus est, l’utilisateur paiera ce prix qu’il <strong>visionne ou non</strong> cette vidéo !
+Comment éviter cela ? Deux solutions sont envisageables.</p>
+<h4 id="521---le-lazy-loading">5.2.1 - Le lazy loading</h4>
+<p>La première solution renvoie au chapitre relatif au lazy loading des images : l’iframe la plus optimale reste celle qu’on ne télécharge pas. De même, les deux solutions évoquées sont aussi d’actualités, à savoir :</p>
+<ol>
+<li>Utiliser <em>lazysizes</em> en remplaçant l’attribut <code>src</code> par <code>data-src</code>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">iframe</span>
+  <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+  <span style="color:#a6e22e">allowfullscreen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#a6e22e">data-src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//www.youtube.com/embed/ZfV-aYdU4uE&#34;</span>
+&gt;
+&lt;/<span style="color:#f92672">iframe</span>&gt;
+</code></pre></div><ol start="2">
+<li>Utiliser l’attribut <code>loading=&quot;lazy&quot;</code> (dont le support - ou son manque de support - reste identique aux images) :</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">iframe</span>
+  <span style="color:#a6e22e">frameborder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+  <span style="color:#a6e22e">allowfullscreen</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+  <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//www.youtube.com/embed/ZfV-aYdU4uE&#34;</span>
+  <span style="color:#a6e22e">loading</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;lazy&#34;</span>
+&gt;&lt;/<span style="color:#f92672">iframe</span>&gt;
+</code></pre></div><p>Toutefois, le problème n’est résolu qu’à moitié : dès que la vidéo apparaît à l’écran de l’utilisateur, nous récupérons l’ensemble des 584 Ko de JavaScript.</p>
+<h4 id="522---un-faux-lecteur-vidéo">5.2.2 - Un faux lecteur vidéo</h4>
+<p>L’idée, au premier abord, peut sembler saugrenue mais permet d’obtenir le résultat escompté : remplacer le <em>player</em> Youtube par un bouton contenant une image de pré-visualisation associée à une icône de lecture. En cas de clic, nous basculons ensuite sur l’iframe de Youtube en lecture automatique (via <code>autoplay=1</code>).</p>
+<p>Note : pour réaliser ce composant, nous utiliserons React mais une transposition vers des équivalents Svelte, Vue ou Angular est facilement envisageable.</p>
+<p>Ce composant accueillera deux paramètres que seront :</p>
+<ul>
+<li>l’identifiant de la vidéo Youtube</li>
+<li>le titre de vidéo (pour l’accessibilité — notamment ceux avec un lecteur d’écran)</li>
+</ul>
+<p>Pour utiliser ce composant, nous procéderons de la sorte :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">YoutubeVideo</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dQw4w9WgXcQ&#34;</span> <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Never gonna give you up&#34;</span> /&gt;
+</code></pre></div><p>Tout d’abord, nous commencerons par créer le bouton en question :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">YoutubeVideo</span>({ <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">title</span> }) {
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span>
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`Vidéo Youtube : </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">title</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>}
+      <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">buttonStyle</span>}
+      <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">startVideo</span>}
+    <span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span>
+        <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">imgStyle</span>}
+        <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`https://img.youtube.com/vi/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/hqdefault.jpg`</span>}
+        <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">youtubeIconStyle</span>} <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;youtube-icon.svg&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+  );
+}
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">YoutubeVideo</span>;
+</code></pre></div><p>En ajoutant un peu de style à notre bouton, nous allons :</p>
+<ul>
+<li>
+<p>indiquer les dimensions de la vidéo, dimensions qui seront identiques pour la vidéo et le bouton</p>
+</li>
+<li>
+<p>centrer l’icône de lecture verticalement et horizontalement</p>
+</li>
+<li>
+<p>ajuster l’image de pré-visualisation pour qu’elle occupe la totalité de l’espace disponible. D’ailleurs, concernant cette image, vous pouvez remarquer qu’elle provient directement de Youtube; l’image d’une vidéo pouvant être récupérée à l’adresse suivante : <code>https://img.youtube.com/vi/[IDENTIFIANT_VIDEO]/hqdefault.jpg</code>.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/* Dimensions de la vidéo et du bouton */</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">style</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span>,
+  <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;350px&#34;</span>,
+};
+<span style="color:#75715e">/* Centrer l&#39;icône Youtube (entre autres...) */</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">buttonStyle</span> <span style="color:#f92672">=</span> {
+  ...<span style="color:#a6e22e">style</span>,
+  <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;relative&#34;</span>,
+  <span style="color:#a6e22e">overflow</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hidden&#34;</span>,
+  <span style="color:#a6e22e">cursor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pointer&#34;</span>,
+  <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;flex&#34;</span>,
+  <span style="color:#a6e22e">justifyContent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;center&#34;</span>,
+  <span style="color:#a6e22e">alignItems</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;center&#34;</span>,
+  <span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;none&#34;</span>,
+};
+<span style="color:#75715e">/* Image de pré-visualisation pour occuper tout l&#39;espace */</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">imgStyle</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span>,
+  <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span>,
+  <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;absolute&#34;</span>,
+  <span style="color:#a6e22e">zIndex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+};
+<span style="color:#75715e">/* Placer l&#39;icône au-dessus de celle de pré-visualisation */</span>
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">youtubeIconStyle</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">zIndex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+};
+</code></pre></div><p>Pour le moment, nous obtenons un bouton qui ne fait simplement rien… mais qui ressemble fortement à la preview d’une vidéo Youtube :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-3/0_TpnkNgRvDIuvENbY.png" alt=""  />
+</figure></p>
+<p>La suite consistera à ajouter une variable au sein de notre composant, nommée <code>showVideo</code>, gérant l&rsquo;affichage de l'<em>iframe</em>. Elle sera à <code>false</code> par défaut et signifiera que l&rsquo;on affichera le bouton de pré-visualisation. Au clic sur le bouton, <code>showVideo</code> deviendra <code>true</code> et occasionnera le démarrage de la vidéo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">...
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">YoutubeVideo</span>({ <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">imgSrc</span>, <span style="color:#a6e22e">title</span> }) {
+  <span style="color:#75715e">// On utilise les hooks React
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showVideo</span>, <span style="color:#a6e22e">setShowVideo</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">startVideo</span>() {
+    <span style="color:#a6e22e">setShowVideo</span>(<span style="color:#66d9ef">true</span>);
+  }
+  ...
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span>
+      <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">startVideo</span>} <span style="color:#75715e">// &lt;=== Action au clic
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`Vidéo Youtube : </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">title</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>}
+      <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">buttonStyle</span>}
+    <span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">imgStyle</span>} <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`https://img.youtube.com/vi/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/hqdefault.jpg`</span>} <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">youtubeIconStyle</span>} <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;youtube-icon.svg&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+  );
+}
+</code></pre></div><p>La dernière étape consistera à renvoyer l’iframe Youtube si <code>showVideo</code> a une valeur égale à <code>true</code>. Noter l&rsquo;ajout de <code>autoplay=1</code> après l&rsquo;URL de la vidéo Youtube, c&rsquo;est ce paramètre qui permet de démarrer la vidéo sans nécessiter de second clic par l&rsquo;utilisateur :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">showVideo</span>) {
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">iframe</span>
+        <span style="color:#a6e22e">sandbox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;allow-scripts allow-same-origin allow-presentation&#34;</span>
+        <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`Vidéo Youtube : </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">title</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>}
+        <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`https://www.youtube.com/embed/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">?autoplay=1&amp;rel=0`</span>}
+        <span style="color:#a6e22e">frameBorder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+        <span style="color:#a6e22e">allow</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;autoplay; encrypted-media&#34;</span>
+        <span style="color:#a6e22e">allowFullScreen</span>
+        <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">style</span>}
+      <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+  );
+}
+</code></pre></div><p>Et c’est aussi simple que cela, nous venons de créer un composant n’affichant (et téléchargeant) le lecteur Youtube uniquement si cela est nécessaire.</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-3/0_P_YZb65E6WVaBjbq.png" alt=""  />
+</figure></p>
+<p><em>J’aurai bien voulu convertir ce GIF en mp4 mais medium n’accepte pas les vidéos 😔</em> (Note: cet article est repris de medium 😉)</p>
+<p>Au final, voici le code de notre composant au complet :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">style</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span>,
+  <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;350px&#34;</span>,
+};
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">buttonStyle</span> <span style="color:#f92672">=</span> {
+  ...<span style="color:#a6e22e">style</span>,
+  <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;relative&#34;</span>,
+  <span style="color:#a6e22e">overflow</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hidden&#34;</span>,
+  <span style="color:#a6e22e">cursor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pointer&#34;</span>,
+  <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;flex&#34;</span>,
+  <span style="color:#a6e22e">justifyContent</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;center&#34;</span>,
+  <span style="color:#a6e22e">alignItems</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;center&#34;</span>,
+  <span style="color:#a6e22e">border</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;none&#34;</span>,
+};
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">imgStyle</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span>,
+  <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;100%&#34;</span>,
+  <span style="color:#a6e22e">position</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;absolute&#34;</span>,
+  <span style="color:#a6e22e">zIndex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+};
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">youtubeIconStyle</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">zIndex</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>,
+};
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">YoutubeVideo</span>({ <span style="color:#a6e22e">id</span>, <span style="color:#a6e22e">title</span> }) {
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">showVideo</span>, <span style="color:#a6e22e">setShowVideo</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">startVideo</span>() {
+    <span style="color:#a6e22e">setShowVideo</span>(<span style="color:#66d9ef">true</span>);
+  }
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">showVideo</span>) {
+    <span style="color:#66d9ef">return</span> (
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">iframe</span>
+          <span style="color:#a6e22e">sandbox</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;allow-scripts allow-same-origin allow-presentation&#34;</span>
+          <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`Vidéo Youtube : </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">title</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>}
+          <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`https://www.youtube.com/embed/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">?autoplay=1&amp;rel=0`</span>}
+          <span style="color:#a6e22e">frameBorder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span>
+          <span style="color:#a6e22e">allow</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;autoplay; encrypted-media&#34;</span>
+          <span style="color:#a6e22e">allowFullScreen</span>
+          <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">style</span>}
+        <span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+    );
+  }
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span>
+      <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>
+      <span style="color:#a6e22e">title</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`Vidéo Youtube : </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">title</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>}
+      <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">buttonStyle</span>}
+      <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">startVideo</span>}
+    <span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span>
+        <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">imgStyle</span>}
+        <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span>{<span style="color:#e6db74">`https://img.youtube.com/vi/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/hqdefault.jpg`</span>}
+        <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">img</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">youtubeIconStyle</span>} <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;youtube-icon.svg&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+  );
+}
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">YoutubeVideo</span>;
+</code></pre></div><p>Cette optimisation peut sembler s’apparenter à du bricolage mais le résultat est bien là : une diminution de plus de 500 Ko du poids de votre page et un téléchargement uniquement si l’utilisateur souhaite consulter la vidéo.</p>
+<h2 id="-6---lighthouse">🧜🏻‍♀️ 6 - Lighthouse</h2>
+<p>Et s’il existait un outil testant l’ensemble de ces critères, voire plus ? Bonne nouvelle, cet outil existe et il se nomme Lighthouse !</p>
+<p>Directement embarqué dans le navigateur Google Chrome ou disponible en ligne à l’adresse <a href="https://developers.google.com/web/tools/lighthouse#psi" target="_blank">https://developers.google.com/web/tools/lighthouse#psi</a>, Lighthouse regroupe tout un panel de tests mesurant la vitesse - entre autres - de votre page.</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-3/0_oY07pBvN0Kaz5pYa.png" alt=""  />
+</figure></p>
+<p>L’outil vous attribue ensuite un score sur 100 et des points d’améliorations.</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-3/0_V0973xjaN_zuI8om.png" alt=""  />
+</figure></p>
+<p>Auditer et surveiller ces métriques régulièrement (une fois par mois par exemple) est un réflexe important pour vous assurer que votre site continue d’être performant au fur et à mesure de son évolution.</p>
+<p>Je vous invite à tester votre site dès maintenant et, si vous ne l’avez jamais fait, des surprises vous attendent sûrement 😉 !</p>
+<hr>
+<h2 id="-conclusion">🚀 Conclusion</h2>
+<p>Nous voici arrivés à la fin de cette série d’articles consacrée à l’amélioration du chargement des pages Web. J’en profite pour vous remercier d’avoir pris le temps de la lire et j’espère qu’elle vous aura plu 🙂</p>
+<p>Toutefois, ce billet n’a pas la prétention d’être exhaustif et d’autres optimisations aurait pu être abordées comme http2, les CDN… Je vous invite d’ailleurs à l’indiquer en commentaires 🙂.</p>
+<p>Je vous remercie d’avoir pris le temps de lire cette série et j’espère que dorénavant, vous contribuerez à créer un web plus léger 😉.</p>
+<hr>
+<h2 id="-aller-plus-loin">🔰 Aller plus loin</h2>
+<h3 id="vidéos-et-articles">Vidéos et articles</h3>
+<p>Voici un ensemble de ressources pour explorer l’univers de l’optimisation des chargements :</p>
+<ul>
+<li>Fast load times : <a href="https://web.dev/fast/" target="_blank">https://web.dev/fast/</a></li>
+<li>Lazy-loading d’images et iframe : <a href="https://web.dev/native-lazy-loading/" target="_blank">https://web.dev/native-lazy-loading/</a></li>
+<li>Code-splitting in React : <a href="https://reactjs.org/docs/code-splitting.html#route-based-code-splitting" target="_blank">https://reactjs.org/docs/code-splitting.html#route-based-code-splitting</a></li>
+<li>Web performance made easy (Google I/O ’18) :
+<a href="https://www.youtube.com/watch?v=Mv-l3-tJgGk" target="_blank">https://www.youtube.com/watch?v=Mv-l3-tJgGk</a></li>
+<li>Speed at Scale: Web Performance Tips and Tricks from the Trenches (Google I/O ’19) : <a href="https://www.youtube.com/watch?v=YJGCZCaIZkQ" target="_blank">https://www.youtube.com/watch?v=YJGCZCaIZkQ</a></li>
+</ul>
+<h3 id="sur-twitter">Sur Twitter</h3>
+<ul>
+<li>Houssein Djirdeh : <a href="https://twitter.com/hdjirdeh" target="_blank">https://twitter.com/hdjirdeh</a></li>
+<li>Addy Osmani : <a href="https://twitter.com/addyosmani" target="_blank">https://twitter.com/addyosmani</a></li>
+<li>Katie Hempenius : <a href="https://twitter.com/katiehempenius" target="_blank">https://twitter.com/katiehempenius</a></li>
+<li>Paul Irish : <a href="https://twitter.com/paul_irish" target="_blank">https://twitter.com/paul_irish</a></li>
+<li>Lighthouse : <a href="https://twitter.com/____lighthouse" target="_blank">https://twitter.com/____lighthouse</a></li>
+</ul>
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>

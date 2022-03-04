@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accélérer vos pages Web quelques réflexes ⚡️ (Partie 2) | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Cet article sera le deuxième d’une série de trois :
+ Images et polices personnalisées : https://link.medium.com/Hxw5ex6Zj8 JavaScript et pré-chargement de …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 2)" />
+<meta property="og:description" content="Cet article sera le deuxième d’une série de trois :
+ Images et polices personnalisées : https://link.medium.com/Hxw5ex6Zj8 JavaScript et pré-chargement de ressources (cet article) Contenus animés et LightHouse (à venir)   🃏 3 - JavaScript L’utilisation du JavaScript a littéralement explosé ses dernières années avec l’avènement de Node.js et ses nombreuses librairies disponibles via NPM, auxquelles s’ajoutent les Single Page Application : Angular, Vue et React.
+3.1 - Code splitting Le terme SPA (Single Page Application) résume à lui tout seul son principe sous-jacent : l’ensemble de notre application est contenu dans une unique page — et par conséquent dans un seul fichier JavaScript, dont la taille est forcément corrélée au nombre de fonctionnalités proposées par votre site." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/accelerer-vos-pages-web-quelques-reflexes-partie-2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 2)"/>
+<meta name="twitter:description" content="Cet article sera le deuxième d’une série de trois :
+ Images et polices personnalisées : https://link.medium.com/Hxw5ex6Zj8 JavaScript et pré-chargement de ressources (cet article) Contenus animés et LightHouse (à venir)   🃏 3 - JavaScript L’utilisation du JavaScript a littéralement explosé ses dernières années avec l’avènement de Node.js et ses nombreuses librairies disponibles via NPM, auxquelles s’ajoutent les Single Page Application : Angular, Vue et React.
+3.1 - Code splitting Le terme SPA (Single Page Application) résume à lui tout seul son principe sous-jacent : l’ensemble de notre application est contenu dans une unique page — et par conséquent dans un seul fichier JavaScript, dont la taille est forcément corrélée au nombre de fonctionnalités proposées par votre site."/>
+
+<meta itemprop="name" content="Accélérer vos pages Web quelques réflexes ⚡️ (Partie 2)">
+<meta itemprop="description" content="Cet article sera le deuxième d’une série de trois :
+ Images et polices personnalisées : https://link.medium.com/Hxw5ex6Zj8 JavaScript et pré-chargement de ressources (cet article) Contenus animés et LightHouse (à venir)   🃏 3 - JavaScript L’utilisation du JavaScript a littéralement explosé ses dernières années avec l’avènement de Node.js et ses nombreuses librairies disponibles via NPM, auxquelles s’ajoutent les Single Page Application : Angular, Vue et React.
+3.1 - Code splitting Le terme SPA (Single Page Application) résume à lui tout seul son principe sous-jacent : l’ensemble de notre application est contenu dans une unique page — et par conséquent dans un seul fichier JavaScript, dont la taille est forcément corrélée au nombre de fonctionnalités proposées par votre site."><meta itemprop="datePublished" content="2020-07-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1344">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">22</span>
+<span class="rest">Jul 2020</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Accélérer vos pages Web quelques réflexes ⚡️ (Partie 2)</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;7&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;1344&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Cet article sera le deuxième d’une série de trois :</p>
+<ul>
+<li>Images et polices personnalisées : <a href="https://link.medium.com/Hxw5ex6Zj8" target="_blank">https://link.medium.com/Hxw5ex6Zj8</a></li>
+<li>JavaScript et pré-chargement de ressources (cet article)</li>
+<li>Contenus animés et LightHouse (à venir)</li>
+</ul>
+<hr>
+<h2 id="-3---javascript">🃏 3 - JavaScript</h2>
+<p>L’utilisation du JavaScript a littéralement explosé ses dernières années avec l’avènement de Node.js et ses nombreuses librairies disponibles via NPM, auxquelles s’ajoutent les <em>Single Page Application</em> : Angular, Vue et React.</p>
+<h3 id="31---code-splitting">3.1 - Code splitting</h3>
+<p>Le terme SPA (<em>Single Page Application</em>) résume à lui tout seul son principe sous-jacent : l’ensemble de notre application est contenu dans une unique page — et par conséquent <strong>dans un seul fichier JavaScript</strong>, dont la taille est forcément corrélée au nombre de fonctionnalités proposées par votre site.</p>
+<p>Bien entendu, au niveau visuel, l’utilisateur a l’impression d’avoir face à lui plusieurs pages grâce à un découpage entre différents composants et notamment à l’aide d’un <em>router</em>. Dans l’univers de React, le <em>router</em> le plus utilisé et connu est le <a href="https://github.com/ReactTraining/react-router/" target="_blank">https://github.com/ReactTraining/react-router/</a> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Route</span>, <span style="color:#a6e22e">Switch</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Home</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routes/Home&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">About</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routes/About&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () =&gt; (
+  &lt;<span style="color:#f92672">Router</span>&gt;
+    &lt;<span style="color:#f92672">Switch</span>&gt;
+      &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">exact</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Home</span>} /&gt;
+      &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/a-propos&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">About</span>} /&gt;
+    &lt;/<span style="color:#f92672">Switch</span>&gt;
+  &lt;/<span style="color:#f92672">Router</span>&gt;
+);
+</code></pre></div><p>Note : des équivalents existent pour Svelte / Vue / Angular mais nous nous focaliserons sur React ici 🙂</p>
+<p>Dans cet exemple, notre <em>bundle</em> final contiendra le code de la page d’accueil et de la page “À propos”; mais aussi toutes les autres pages qui seront présentes dans ce router, pouvant se compter par dizaines.</p>
+<p>Toutefois, vos utilisateurs parcourent rarement l’ensemble de vos pages mais récupère pourtant tout le JavaScript pour le faire : une optimisation en perspective donc !</p>
+<p>Pour pallier ce problème, le <em>code splitting</em> a vu le jour. Ce dernier permet de subdiviser notre bundle en différentes sous-divisions pour n’envoyer aux utilisateurs que le strict nécessaire pour la page courante.</p>
+<p>Dans l’écosystème React, cette possibilité nous est offerte par la combinaison de deux fonctions internes :</p>
+<ul>
+<li>
+<p><em>lazy</em> : prenant en paramètre un import dynamique, qui sera ici notre composant : <code>const About = lazy(() =&gt; import('./routes/About'));</code></p>
+</li>
+<li>
+<p><em>Suspense</em> : composant React dont l’objectif est d’attendre la résolution d’une promesse, l’import dynamique de <em>lazy</em> dans notre cas. <em>Suspense</em> accepte aussi un paramètre <code>fallback</code> pour indiquer un texte ou un composant à exécuter en attendant la résolution de notre promesse :</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx">&lt;<span style="color:#f92672">Suspense</span> <span style="color:#a6e22e">fallback</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">Chargement</span>...&lt;/<span style="color:#f92672">div</span>&gt;}&gt;...&lt;/<span style="color:#f92672">Suspense</span>&gt;
+</code></pre></div><p>Au final, afin d’obtenir un code-splitting fonctionnel, nous devons adapter l’exemple précédent comme suit :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Suspense</span>, <span style="color:#a6e22e">lazy</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Route</span>, <span style="color:#a6e22e">Switch</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Home</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lazy</span>(() =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#34;./routes/Home&#34;</span>));
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">About</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lazy</span>(() =&gt; <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#34;./routes/About&#34;</span>));
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () =&gt; (
+  &lt;<span style="color:#f92672">Router</span>&gt;
+    &lt;<span style="color:#f92672">Suspense</span> <span style="color:#a6e22e">fallback</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">Chargement</span>...&lt;/<span style="color:#f92672">div</span>&gt;}&gt;
+      &lt;<span style="color:#f92672">Switch</span>&gt;
+        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">exact</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">Home</span>} /&gt;
+        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/a-propos&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">About</span>} /&gt;
+      &lt;/<span style="color:#f92672">Switch</span>&gt;
+    &lt;/<span style="color:#f92672">Suspense</span>&gt;
+  &lt;/<span style="color:#f92672">Router</span>&gt;
+);
+</code></pre></div><p>Bien sûr, cela peut sembler inutile de réaliser du code-splitting sur un site contenant deux pages 🙂 mais rassurez-vous, l’effet est démultiplié au fur à mesure que le nombre de pages augmente.</p>
+<h3 id="32---poids-des-librairies-externes">3.2 - Poids des librairies externes</h3>
+<h4 id="321---bundle-phobia">3.2.1 - Bundle Phobia</h4>
+<p>NPM a permis l’introduction de bon nombre de librairies que nous pouvons inclure et utiliser dans notre JavaScript côté <em>front</em>. Toutefois, leur accumulation alourdit petit à petit le poids de nos fichiers et par conséquent ralentit le chargement de notre page. Surveiller le poids des librairies tierces est donc un réflexe nécessaire.</p>
+<p>Pour cela, je ne peux que vous conseiller le site <a href="https://bundlephobia.com/" target="_blank">BundlePhobia</a> dont le nom est éloquent : le site est à destination des développeurs craignant d’alourdir le poids de leur <em>bundle</em>.</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-2/1_PcBTcwecFKcSQZTpRRCNPQ.png" alt=""  />
+</figure></p>
+<p>BundlePhobia vous met à disposition un formulaire de recherche vous permettant d’indiquer la librairie à analyser. Il vous renvoie ensuite son poids et une estimation de son temps de chargement :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-2/1_n1x1aNdUO6GilFWGIvB4rA.png" alt=""  />
+</figure></p>
+<p>N’oubliez pas de vérifier si la librairie en question est aussi <em>tree-shakable</em>. Une librairie <em>tree-shakable</em> est une librairie dont les parties non utilisées seront retirées du bundle final, occasionnant donc une réduction du poids de nos fichiers JavaScript. Par chance, BundlePhobia nous l’indique 🥳</p>
+<p>Pour finir, nous avons aussi une liste de librairies alternatives offrant des fonctionnalités similaires :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-2/1_dCw3wjLv95lrlaAvuihUOA.jpeg" alt=""  />
+</figure></p>
+<h4 id="322--import-cost">3.2.2 — Import Cost</h4>
+<p>Afin de surveiller le poids de votre librairie d’une manière plus régulière, une extension <em>Visual Studio Code</em> nommée <em>Import Cost</em> vous indique le poids des librairies que vous incorporez dans votre code :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-2/1_IICtdXayORIgK7YxIu_B_Q.gif" alt=""  />
+</figure></p>
+<p>Vous trouverez cette extension facilement dans le <em>Market Place</em> de <em>Visual Studio Code</em> :
+<figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-2/1_aJA0MBU7exvpQwxYiFQtUw.png" alt=""  />
+</figure></p>
+<h2 id="-4---préchargement-de-ressources-secondaires-avec-link-relpreload-">💠 4 - Préchargement de ressources secondaires avec &lt;link rel=&ldquo;preload&rdquo; /&gt;</h2>
+<h3 id="41---fonctionnement-de-preload">4.1 - Fonctionnement de preload</h3>
+<p>Les premiers fichiers téléchargés dans nos pages sont souvent la porte d’entrée pour le téléchargement d’autres fichiers (polices, scripts complémentaires, images…), ceci est d’autant plus vrai depuis l’arrivée de librairies/<em>frameworks</em> comme React, Vue, Angular ou encore Svelte.</p>
+<p>Ce fonctionnement ralentit considérablement notre page car plusieurs vagues de téléchargement sont alors nécessaires pour générer le rendu final.</p>
+<p>Toutefois, vu que nous connaissons les fichiers qui seront récupérés en deuxième ou troisième vague de téléchargement, ne pourrait-on pas indiquer au navigateur de le pré-télécharger afin de les avoir directement à disposition quand nous en aurons besoin ? C’est tout à fait possible avec <code>&lt;link rel=&quot;preload&quot; /&gt;</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;preload&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/fonts/custom-font.woff2&#34;</span> <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;font&#34;</span> /&gt;
+</code></pre></div><p>Dans cet exemple, nous indiquons à notre navigateur de pré-télécharger le fichier <code>/fonts/custom-font.woff2</code> car nous en aurons besoin <em>pour le premier affichage de notre page</em>.</p>
+<p>J&rsquo;insiste lourdement sur le terme <em>pour le premier affichage de notre page</em>. En effet, si vous indiquez des ressources dont vous ne faites aucun usage direct, vous obtenez alors l&rsquo;effet inverse : vous consommez des ressources réseaux au détriment de fichiers plus prioritaires ! À utiliser avec intelligence et précision donc 🙂.</p>
+<p>D’ailleurs, Google Chrome nous indique si nous avons pré-téléchargé un fichier dont nous ne faisons pas usage dans trois secondes suivant la fin du chargement de la page (événement onload) :</p>
+<p><figure>
+  <img src="/articles/accelerer-vos-pages-web-quelques-reflexes-partie-2/1_m_d6VOuKC_cOeUBeqSNigw.jpeg" alt=""  />
+</figure></p>
+<h3 id="42---spécifications">4.2 - Spécifications</h3>
+<p>Au niveau de sa composition, cette balise autorise les attributs :</p>
+<ul>
+<li><code>rel</code> : contenant &ldquo;preload&rdquo; pour indiquer qu&rsquo;on souhaite un pré-chargement d&rsquo;une ressource (d&rsquo;autres valeurs sont possibles mais on reviendra dessus plus tard)</li>
+<li><code>href</code> : indiquant le lien de la ressource à récupérer, qui peut être un lien interne ou externe (Google Font par exemple).</li>
+<li><code>as</code> : pour indiquer le type de ressource : &ldquo;font&rdquo;, &ldquo;script&rdquo;, &ldquo;style&rdquo;, &ldquo;video&rdquo;, &ldquo;image&rdquo;&hellip; (liste complète disponible à <a href="https://fetch.spec.whatwg.org/#concept-request-destination" target="_blank">cette adresse</a>). L&rsquo;ajout et la complétion de cet attribut a une très grande importance : elle permet au navigateur d&rsquo;appliquer la bonne <em>Content Security Policy</em>, d&rsquo;utiliser les bons <em>header</em> HTTP mais aussi de mieux identifier la ressource pour éviter sa double récupération.</li>
+<li><code>crossorigin</code> (optionnel) : permettant de gérer les Cross-origin resource sharing (CORS) et devant contenir obligatoirement &ldquo;origin&rdquo; pour les polices afin d&rsquo;éviter un double téléchargement (même depuis une <a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/" target="_blank">origine équivalente</a>).</li>
+<li><code>type</code> (optionnel) : pour indiquer le format du fichier téléchargé et permettre au navigateur d&rsquo;empêcher le téléchargement si ce type n&rsquo;est pas géré (ex: <code>.webp</code> et Safari)</li>
+<li><code>media</code> : pour ne déclencher le téléchargement que sous certaines conditions :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">link</span>
+  <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;preload&#34;</span>
+  <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image&#34;</span>
+  <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;small-background.jpg&#34;</span>
+  <span style="color:#a6e22e">media</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(max-width: 800px)&#34;</span>
+/&gt;
+&lt;<span style="color:#f92672">link</span>
+  <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;preload&#34;</span>
+  <span style="color:#a6e22e">as</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;image&#34;</span>
+  <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;large-background.jpg&#34;</span>
+  <span style="color:#a6e22e">media</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;(min-width: 801px)&#34;</span>
+/&gt;
+</code></pre></div><h3 id="43---support-navigateur">4.3 - Support navigateur</h3>
+<p>Au niveau de son support, et aussi bizarre que cela puisse paraître, seul Firefox ne supporte pas nativement l’attribut <code>rel=&quot;preload&quot;</code> qui est actuellement au statut expérimental et doit être activé dans la configuration du navigateur. Espérons que cette situation sera rapidement corrigée 🙂.</p>
+<h2 id="fin-de-la-deuxième-partie">Fin de la deuxième partie</h2>
+<p>Nous voici arrivés à la fin de cette deuxième partie consacrée aux optimisations liées JavaScript et le pré-chargement de ressources.
+Dans le prochain et dernier épisode, nous finirons en beauté les contenus animées (vidéos/GIF) et Lighthouse.</p>
+<p>Restez connecté 🙂.</p>
+<h2 id="-aller-plus-loin">🔰 Aller plus loin</h2>
+<h3 id="vidéos-et-articles">Vidéos et articles</h3>
+<ul>
+<li>Voici un ensemble de ressources pour explorer l’univers de l’optimisation des chargements :</li>
+<li>Fast load times : <a href="https://web.dev/fast/" target="_blank">https://web.dev/fast/</a></li>
+<li>Preload, Prefetch And Priorities in Chrome : <a href="https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf" target="_blank">https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf</a></li>
+<li>Preload: What Is It Good For? : <a href="https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/" target="_blank">https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/</a></li>
+<li>Code-splitting in React : <a href="https://reactjs.org/docs/code-splitting.html#route-based-code-splitting" target="_blank">https://reactjs.org/docs/code-splitting.html#route-based-code-splitting</a></li>
+<li>Web performance made easy (Google I/O ’18) :
+<a href="https://www.youtube.com/watch?v=Mv-l3-tJgGk" target="_blank">https://www.youtube.com/watch?v=Mv-l3-tJgGk</a></li>
+<li>Speed at Scale: Web Performance Tips and Tricks from the Trenches (Google I/O ’19) : <a href="https://www.youtube.com/watch?v=YJGCZCaIZkQ" target="_blank">https://www.youtube.com/watch?v=YJGCZCaIZkQ</a></li>
+</ul>
+<h3 id="sur-twitter">Sur Twitter</h3>
+<ul>
+<li>Houssein Djirdeh : <a href="https://twitter.com/hdjirdeh" target="_blank">https://twitter.com/hdjirdeh</a></li>
+<li>Addy Osmani : <a href="https://twitter.com/addyosmani" target="_blank">https://twitter.com/addyosmani</a></li>
+<li>Katie Hempenius : <a href="https://twitter.com/katiehempenius" target="_blank">https://twitter.com/katiehempenius</a></li>
+<li>Paul Irish : <a href="https://twitter.com/paul_irish" target="_blank">https://twitter.com/paul_irish</a></li>
+<li>Lighthouse : <a href="https://twitter.com/____lighthouse" target="_blank">https://twitter.com/____lighthouse</a></li>
+</ul>
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>

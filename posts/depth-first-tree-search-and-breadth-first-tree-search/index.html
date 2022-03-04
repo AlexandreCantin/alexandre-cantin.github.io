@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Parcours d’arbre : Depth First &amp; Breadth First 🌳 | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Parcours d’arbre : Depth First & Breadth First Le parcours d’arbre est un grand classique lors d’entretiens algorithmiques et bien que cet exercice peut …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="Parcours d’arbre : Depth First &amp; Breadth First 🌳" />
+<meta property="og:description" content="Parcours d&rsquo;arbre : Depth First &amp; Breadth First Le parcours d&rsquo;arbre est un grand classique lors d&rsquo;entretiens algorithmiques et bien que cet exercice peut sembler intimidant au premier abord, nous allons découvrir qu&rsquo;il y a, en réalité, plus de peur que de mal !
+Ainsi, dans cet article, nous nous intéressons aux deux méthodes les plus courantes afin de parcourir un arbre que sont :
+ le parcours en profondeur (Depth First), où le choix du prochain noeud se porte sur le premier enfant du noeud courant :" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/depth-first-tree-search-and-breadth-first-tree-search/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-04-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-30T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Parcours d’arbre : Depth First &amp; Breadth First 🌳"/>
+<meta name="twitter:description" content="Parcours d&rsquo;arbre : Depth First &amp; Breadth First Le parcours d&rsquo;arbre est un grand classique lors d&rsquo;entretiens algorithmiques et bien que cet exercice peut sembler intimidant au premier abord, nous allons découvrir qu&rsquo;il y a, en réalité, plus de peur que de mal !
+Ainsi, dans cet article, nous nous intéressons aux deux méthodes les plus courantes afin de parcourir un arbre que sont :
+ le parcours en profondeur (Depth First), où le choix du prochain noeud se porte sur le premier enfant du noeud courant :"/>
+
+<meta itemprop="name" content="Parcours d’arbre : Depth First &amp; Breadth First 🌳">
+<meta itemprop="description" content="Parcours d&rsquo;arbre : Depth First &amp; Breadth First Le parcours d&rsquo;arbre est un grand classique lors d&rsquo;entretiens algorithmiques et bien que cet exercice peut sembler intimidant au premier abord, nous allons découvrir qu&rsquo;il y a, en réalité, plus de peur que de mal !
+Ainsi, dans cet article, nous nous intéressons aux deux méthodes les plus courantes afin de parcourir un arbre que sont :
+ le parcours en profondeur (Depth First), où le choix du prochain noeud se porte sur le premier enfant du noeud courant :"><meta itemprop="datePublished" content="2020-04-30T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1163">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">30</span>
+<span class="rest">Apr 2020</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Parcours d’arbre : Depth First &amp; Breadth First 🌳</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;1163&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h1 id="parcours-darbre--depth-first--breadth-first">Parcours d&rsquo;arbre : Depth First &amp; Breadth First</h1>
+<p>Le parcours d&rsquo;arbre est un grand classique lors d&rsquo;entretiens algorithmiques et bien que cet exercice peut sembler intimidant au premier abord, nous allons découvrir qu&rsquo;il y a, en réalité, plus de peur que de mal !</p>
+<p>Ainsi, dans cet article, nous nous intéressons aux deux méthodes les plus courantes afin de parcourir un arbre que sont :</p>
+<ul>
+<li>le parcours en profondeur (<em>Depth First</em>), où le choix du prochain noeud se porte sur le premier enfant du noeud courant :</li>
+</ul>
+<p><figure>
+  <img src="/articles/depth-first-tree-search-and-breadth-first-tree-search/breadth_first_search.gif" alt=""  />
+</figure></p>
+<p><em>Parcours en profondeur</em></p>
+<ul>
+<li>le parcours en largeur (<em>Breadth First</em>), où le prochain noeud est celui adjacent au noeud courant, c&rsquo;est-à-dire celui situé au même niveau de profondeur :</li>
+</ul>
+<p><figure>
+  <img src="/articles/depth-first-tree-search-and-breadth-first-tree-search/deep_first_search.gif" alt=""  />
+</figure></p>
+<p><em>Parcours en largeur</em></p>
+<h2 id="parcours-en-profondeur---_depth-first_">Parcours en profondeur - <em>Depth first</em></h2>
+<p>Au niveau algorithmique, l&rsquo;utilisation de la récursivité reste le choix le plus pertinent. Ainsi, nous utiliserons la récursivité pour notre parcours mais nous y ajouterons toutefois une étape supplémentaire pour les besoins de l&rsquo;article, en stockant les noeuds dans une structure de données.</p>
+<p>En effet, dès l&rsquo;entrée dans un noeud et après le traitement de sa valeur, nous stockerons ses enfants dans une structure de données (contenant une méthode <em>saveNode</em>), récupérerons ensuite le prochain noeud (méthode <em>getNextNode</em>) et passerons à la prochaine étape de notre parcours. En pseudo-code, nous obtenons ainsi :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">    <span style="color:#75715e">// Structure de données encore inconnue
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Structure</span> {
+      <span style="color:#a6e22e">saveNode</span>(<span style="color:#a6e22e">node</span>) {}
+      <span style="color:#a6e22e">getNextNode</span>() {}
+    }
+
+    <span style="color:#75715e">// Fonction de traitement d&#39;un noeud
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">nodeStructure</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Structure</span>()
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">computeNode</span>(<span style="color:#a6e22e">node</span>) {
+      <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">node</span>) <span style="color:#66d9ef">return</span>;
+
+      <span style="color:#a6e22e">computeNodeValue</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">value</span>)
+
+      <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span>) <span style="color:#a6e22e">nodeStructure</span>.<span style="color:#a6e22e">saveNode</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span>)
+      <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span>) <span style="color:#a6e22e">nodeStructure</span>.<span style="color:#a6e22e">saveNode</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span>)
+
+      <span style="color:#a6e22e">computeNode</span>(<span style="color:#a6e22e">nodeStructure</span>.<span style="color:#a6e22e">getNextNode</span>())
+    }
+
+    <span style="color:#75715e">// Création de l&#39;arbre et début du parcours
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tree</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Tree</span>(...)
+    <span style="color:#a6e22e">computeNode</span>(<span style="color:#a6e22e">tree</span>.<span style="color:#a6e22e">root</span>)
+</code></pre></div><p>Maintenant, si nous déroulons un exemple plus concret avec l&rsquo;arbre présenté en début d&rsquo;article et le pseudo-code ci-dessus :</p>
+<p><strong>1ère étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 1, nous sommes à la racine</li>
+<li>Nous ajoutons ses deux enfants dans la structure de données : <code>[2,5]</code></li>
+<li>Nous récupérons le prochain élément : <code>[2,5]</code> =&gt; 2, <code>[5]</code></li>
+</ul>
+<p><strong>2ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 2</li>
+<li>Nous ajoutons ses deux enfants dans la structure de données : <code>[3, 4, 5]</code></li>
+<li>Nous récupérons le prochain élément : <code>[3, 4, 5]</code> =&gt; 3, <code>[4,5]</code></li>
+</ul>
+<p><strong>3ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 3</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[4, 5]</code></li>
+<li>Nous récupérons le prochain élément : <code>[4, 5]</code> =&gt; 4, <code>[5]</code></li>
+</ul>
+<p><strong>4ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 4</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[5]</code></li>
+<li>Nous récupérons le prochain élément : <code>[5]</code> =&gt; 5, <code>[]</code></li>
+</ul>
+<p><strong>5ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 5</li>
+<li>Nous ajoutons ses deux enfants dans la structure de données : <code>[6,7]</code></li>
+<li>Nous récupérons le prochain élément : <code>[6,7]</code> =&gt; 6, <code>[7]</code></li>
+</ul>
+<p><strong>6ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 6</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[7]</code></li>
+<li>Nous récupérons le prochain élément : <code>[7]</code> =&gt; 7, <code>[]</code></li>
+</ul>
+<p><strong>7ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 7</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[]</code></li>
+<li>Nous récupérons le prochain élément : <code>[]</code> =&gt; x, <code>[]</code></li>
+</ul>
+<p><strong>8ème étape :</strong></p>
+<ul>
+<li>Pas de valeur et la structure est vide : le parcours est terminé</li>
+</ul>
+<p>Après ce long déroulé, nous constatons que l&rsquo;ordre d&rsquo;ajout dans la liste à son importance : nous ne prenons que le noeud inséré le plus récemment. En algorithmique, ce concept est appelé <em>Last In First Out</em>, abrégé LIFO, et notre structure de données doit respecter cette règle pour devenir compatible avec le parcours en profondeur; comme par exemple une <em>stack.</em></p>
+<p>Un ajustement s&rsquo;avère néanmoins nécessaire vis-à-vis du pseudo-algorithme précédent : le noeud gauche y est inséré avant le noeud de droite. On parcourt ainsi l&rsquo;arbre par la droite (1 -5 - 7 - 6 - 2 - 4 - 3) et on doit ainsi permuter les deux lignes <em>saveNode :</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// Noeud droite avant le gauche
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span>) <span style="color:#a6e22e">nodeStructure</span>.<span style="color:#a6e22e">saveNode</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">right</span>);
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span>) <span style="color:#a6e22e">nodeStructure</span>.<span style="color:#a6e22e">saveNode</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">left</span>);
+</code></pre></div><p>Nous en avons ainsi fini avec le parcours en profondeur. L&rsquo;ajout d&rsquo;une structure de données peut sembler au premier abord superflu mais, rassurez-vous, ce socle nous sera très utile pour le parcours en largeur.</p>
+<h2 id="parcours-en-largeur---_breadth-first_">Parcours en largeur - <em>Breadth First</em></h2>
+<p>Pour le parcours en largeur, nous utiliserons une base identique à celle du parcours en profondeur, à savoir le pseudo-algorithme associé à une structure de données (encore inconnue à ce stade).</p>
+<p>Si, comme précédent, nous effectuons un déroulé des différentes étapes du parcours, nous obtenons :</p>
+<p><strong>1ère étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 1, nous sommes à la racine</li>
+<li>Nous ajoutons ses deux enfants dans la structure de données : <code>[2,5]</code></li>
+<li>Nous récupérons le prochain élément : <code>[2,5]</code> =&gt; 2, <code>[5]</code></li>
+</ul>
+<p><strong>2ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 2</li>
+<li>Nous ajoutons ses deux enfants dans la structure de données : <code>[3, 4, 5]</code></li>
+<li>Nous récupérons le prochain élément : <code>[3, 4, 5]</code> =&gt; 5, <code>[3, 4]</code></li>
+</ul>
+<p><strong>3ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 5</li>
+<li>Nous ajoutons ses deux enfants dans la structure de données : <code>[3, 4, 6, 7]</code></li>
+<li>Nous récupérons le prochain élément : <code>[3, 4, 6, 7]</code> =&gt; 3, <code>[4, 6, 7]</code></li>
+</ul>
+<p><strong>4ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 3</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[4, 6, 7]</code></li>
+<li>Nous récupérons le prochain élément : <code>[4, 6, 7]</code> =&gt; 4, <code>[6, 7]</code></li>
+</ul>
+<p><strong>5ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 4</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[6,7]</code></li>
+<li>Nous récupérons le prochain élément : <code>[6,7]</code> =&gt; 6, <code>[7]</code></li>
+</ul>
+<p><strong>6ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 6</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[7]</code></li>
+<li>Nous récupérons le prochain élément : <code>[7]</code> =&gt; 7, <code>[]</code></li>
+</ul>
+<p><strong>7ème étape :</strong></p>
+<ul>
+<li>Nous traitons la valeur du noeud : 7</li>
+<li>Pas d&rsquo;enfant, la structure est inchangée : <code>[]</code></li>
+<li>Nous récupérons le prochain élément : <code>[]</code> =&gt; x, <code>[]</code></li>
+</ul>
+<p><strong>8ème étape :</strong></p>
+<ul>
+<li>Pas de valeur et la structure est vide : le parcours est terminé</li>
+</ul>
+<p>Ici, et contrairement au parcours en profondeur, ce n&rsquo;est pas le dernier noeud inséré qui nous intéresse mais le plus ancien. Ce concept algorithmique, appelé <em>First In First Out</em> et abrégé <em>FIFO,</em> se doit donc d&rsquo;être respecté par notre structure de données et comme exemple, nous pouvons citer une <em>queue</em>, cette dernière étant similaire à une file d&rsquo;attente.</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Plusieurs domaines de l’informatique exploitent la puissance des arbres : index de base de données, arbres de décision, analyse de code source (<em>Abstract syntax tree)&hellip;</em> et cela explique ainsi leur présence en entretien technique.</p>
+<p>Toutefois comme nous venons de le voir, le parcours d&rsquo;arbre en profondeur ou en largeur n’est pas si complexe et peut se résumer à une simple association avec une structure de données :</p>
+<ul>
+<li>une structure respectant la logique LIFO pour un parcours en profondeur</li>
+<li>et une structure respectant la logique FIFO pour un parcours en largeur</li>
+</ul>
+<p>Deux concepts finalement faciles et rapides à retenir et qui, j&rsquo;espère, ne vous fera plus craindre de futurs entretiens avec des parcours d&rsquo;arbres !</p>
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>

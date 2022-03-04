@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>display-grid: une nouvelle maniere d&#39;organiser vos pages web (2/2) | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Grid-area : le positionnement par zone Pour aller plus loin avec la propriété display: grid, il est possible de nommer les différentes zones de notre …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="display-grid: une nouvelle maniere d&#39;organiser vos pages web (2/2)" />
+<meta property="og:description" content="Grid-area : le positionnement par zone Pour aller plus loin avec la propriété display: grid, il est possible de nommer les différentes zones de notre grille pour les affecter aux éléments enfants. Deux propriétés nous permettent cela : - grid-template-areas pour le nommage des zones de notre grille - grid-area pour affecter un nom à un élément enfant
+Ainsi, le code suivant&hellip;
+&lt;div class=&#34;container&#34;&gt; &lt;header&gt;header&lt;/header&gt; &lt;nav&gt;nav&lt;/nav&gt; &lt;main&gt;main&lt;/main&gt; &lt;footer&gt;footer&lt;/footer&gt; &lt;/div&gt; &lt;style&gt; ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/display-grid-une-nouvelle-maniere-dorganiser-vos-pages-web-2-2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="display-grid: une nouvelle maniere d&#39;organiser vos pages web (2/2)"/>
+<meta name="twitter:description" content="Grid-area : le positionnement par zone Pour aller plus loin avec la propriété display: grid, il est possible de nommer les différentes zones de notre grille pour les affecter aux éléments enfants. Deux propriétés nous permettent cela : - grid-template-areas pour le nommage des zones de notre grille - grid-area pour affecter un nom à un élément enfant
+Ainsi, le code suivant&hellip;
+&lt;div class=&#34;container&#34;&gt; &lt;header&gt;header&lt;/header&gt; &lt;nav&gt;nav&lt;/nav&gt; &lt;main&gt;main&lt;/main&gt; &lt;footer&gt;footer&lt;/footer&gt; &lt;/div&gt; &lt;style&gt; ."/>
+
+<meta itemprop="name" content="display-grid: une nouvelle maniere d&#39;organiser vos pages web (2/2)">
+<meta itemprop="description" content="Grid-area : le positionnement par zone Pour aller plus loin avec la propriété display: grid, il est possible de nommer les différentes zones de notre grille pour les affecter aux éléments enfants. Deux propriétés nous permettent cela : - grid-template-areas pour le nommage des zones de notre grille - grid-area pour affecter un nom à un élément enfant
+Ainsi, le code suivant&hellip;
+&lt;div class=&#34;container&#34;&gt; &lt;header&gt;header&lt;/header&gt; &lt;nav&gt;nav&lt;/nav&gt; &lt;main&gt;main&lt;/main&gt; &lt;footer&gt;footer&lt;/footer&gt; &lt;/div&gt; &lt;style&gt; ."><meta itemprop="datePublished" content="2020-04-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="370">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">01</span>
+<span class="rest">Apr 2020</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">display-grid: une nouvelle maniere d&#39;organiser vos pages web (2/2)</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;370&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<h2 id="grid-area--le-positionnement-par-zone">Grid-area : le positionnement par zone</h2>
+<p>Pour aller plus loin avec la propriété <code>display: grid</code>, il est possible de nommer les différentes zones de notre grille pour les affecter aux éléments enfants.
+Deux propriétés nous permettent cela :
+- <code>grid-template-areas</code> pour le nommage des zones de notre grille
+- <code>grid-area</code> pour affecter un nom à un élément enfant</p>
+<p>Ainsi, le code suivant&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+  &lt;<span style="color:#f92672">header</span>&gt;header&lt;/<span style="color:#f92672">header</span>&gt;
+  &lt;<span style="color:#f92672">nav</span>&gt;nav&lt;/<span style="color:#f92672">nav</span>&gt;
+  &lt;<span style="color:#f92672">main</span>&gt;main&lt;/<span style="color:#f92672">main</span>&gt;
+  &lt;<span style="color:#f92672">footer</span>&gt;footer&lt;/<span style="color:#f92672">footer</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+
+&lt;<span style="color:#f92672">style</span>&gt;
+  .<span style="color:#a6e22e">container</span> {
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">grid</span>;
+    <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#a6e22e">repeat</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>fr);
+    <span style="color:#66d9ef">grid-template-rows</span>: <span style="color:#a6e22e">repeat</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>fr);
+    <span style="color:#66d9ef">grid-template-areas</span>:
+      <span style="color:#e6db74">&#34;header  header header&#34;</span>
+      <span style="color:#e6db74">&#34;nav    main   main&#34;</span>
+      <span style="color:#e6db74">&#34;.      main   main&#34;</span>
+      <span style="color:#e6db74">&#34;footer footer footer&#34;</span>;
+  }
+
+  <span style="color:#f92672">header</span> {
+    <span style="color:#66d9ef">grid-area</span>: header;
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">yellow</span>;
+  }
+  <span style="color:#f92672">nav</span> {
+    <span style="color:#66d9ef">grid-area</span>: nav;
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">red</span>;
+  }
+  <span style="color:#f92672">main</span> {
+    <span style="color:#66d9ef">grid-area</span>: main;
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">green</span>;
+  }
+  <span style="color:#f92672">footer</span> {
+    <span style="color:#66d9ef">grid-area</span>: footer;
+    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">orange</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;
+</code></pre></div><p>&hellip;permet d&rsquo;obtenir le rendu suivant :</p>
+<p><figure>
+  <img src="/articles/grid-2/grid-area.png" alt=""  />
+</figure></p>
+<p>*<strong>*Première remarque**</strong>: comme on peut le remarquer, la propriété <code>grid-template-areas</code> permet de visualiser facilement l&rsquo;organisation de notre page. *<strong>*Deuxième remarque**</strong>: la définition d&rsquo;une zone vide est possible avec le caractère &lsquo;.&rsquo;</p>
+<p>Le <code>responsive</code> se retrouve encore plus facilité car une simple redéfinition de <code>grid-template-areas</code> suffit :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">760px</span><span style="color:#f92672">)</span> {
+  .<span style="color:#a6e22e">container</span> {
+    <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">1</span>fr;
+    <span style="color:#66d9ef">grid-template-rows</span>: <span style="color:#a6e22e">repeat</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>fr);
+    <span style="color:#66d9ef">grid-template-areas</span>:
+      <span style="color:#e6db74">&#34;header&#34;</span>
+      <span style="color:#e6db74">&#34;nav&#34;</span>
+      <span style="color:#e6db74">&#34;main&#34;</span>
+      <span style="color:#e6db74">&#34;footer&#34;</span>;
+  }
+}
+</code></pre></div><p>Résultat obtenu :</p>
+<p><figure>
+  <img src="/articles/grid-2/responsive-1.png" alt=""  />
+</figure></p>
+<h2 id="auto-flow-laisser-le-navigateur-gérer-le-nombre-de-colonnes">Auto-flow: laisser le navigateur gérer le nombre de colonnes</h2>
+<p>Envie de créer un design responsive à moindre frais ? <code>auto-fit</code> est là pour vous ! Cette propriété, associé à <code>repeat</code> et <code>minmax</code> indique au navigateur de décider lui-même du nombre de colonne.</p>
+<p>Note : <code>minmax</code> permet de spécifier une largeur minimal et maximale à notre colonne.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://placeimg.com/320/240/any?t=1540277633194&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://placeimg.com/320/240/any?t=1540277663768&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://placeimg.com/320/240/any?t=1540277675502&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://placeimg.com/320/240/any?t=1540277689969&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> /&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+
+&lt;<span style="color:#f92672">style</span>&gt;
+  .<span style="color:#a6e22e">container</span> {
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">grid</span>;
+    <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#a6e22e">repeat</span>(<span style="color:#66d9ef">auto</span><span style="color:#f92672">-</span>fit, <span style="color:#a6e22e">minmax</span>(<span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>, <span style="color:#ae81ff">1</span>fr));
+    <span style="color:#66d9ef">grid-gap</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;
+  }
+  .<span style="color:#a6e22e">container</span> <span style="color:#f92672">img</span> {
+    <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;
+    <span style="color:#66d9ef">max-height</span>: <span style="color:#ae81ff">200</span><span style="color:#66d9ef">px</span>;
+  }
+&lt;/<span style="color:#f92672">style</span>&gt;
+</code></pre></div><p>Le code ci-dessus demande au navigateur : &ldquo;Je souhaite que mes colonnes fassent entre 200px et 1fr de largeur&rdquo;. Ainsi, le navigateur se forcera à respecter cette règle et fera varier le nombre de colonnes en fonction de la largeur de la fenêtre.</p>
+<p><figure>
+  <img src="/articles/grid-2/ezgif-3-8c6509add93d.gif" alt=""  />
+</figure></p>
+<h2 id="pour-aller-plus-loin"><strong>Pour aller plus loin</strong></h2>
+<p>Pour en apprendre davantage sur les <code>CSS grid</code>, je ne peux que vous conseiller de visionner cette conférence de Rachel Andrew sur le sujet lors du Devfest Nantes de 2017 :</p>
+<!-- raw HTML omitted -->
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>

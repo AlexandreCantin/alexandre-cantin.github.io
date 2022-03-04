@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pourquoi utiliser rel=&#39;noopener&#39; avec target=&#39;_blank&#39; | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Dans le cadre du SEO, l’attribut rel en HTML est déjà connu pour indiquer à un crawler s’il doit suivre ou non un lien :
+Google Toutefois, un nouvel …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="Pourquoi utiliser rel=&#39;noopener&#39; avec target=&#39;_blank&#39;" />
+<meta property="og:description" content="Dans le cadre du SEO, l&rsquo;attribut rel en HTML est déjà connu pour indiquer à un crawler s&rsquo;il doit suivre ou non un lien :
+&lt;a href=&#34;www.google.com&#34; rel=&#34;nofollow&#34;&gt;Google&lt;/a&gt; Toutefois, un nouvel attribut a récémment nommé noopener et ce dernier intervient exclusivement lors de l&rsquo;usage de target=&quot;_blank&quot; sur un lien pour en améliorer la sécurité.
+En effet, Mathias Bynens (développeur V8 chez Chrome et chercheur en sécurité) a identifié que l&rsquo;ouverture d&rsquo;un lien dans une nouvelle fenêtre via target=&quot;_blank&quot; permettait à la page cible d&rsquo;intéragir avec l&rsquo;ensemble de la page appelante, et cela même si les domaines sont différents !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/pourquoi-utiliser-rel-noopener-avec-target-_blank/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-04-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pourquoi utiliser rel=&#39;noopener&#39; avec target=&#39;_blank&#39;"/>
+<meta name="twitter:description" content="Dans le cadre du SEO, l&rsquo;attribut rel en HTML est déjà connu pour indiquer à un crawler s&rsquo;il doit suivre ou non un lien :
+&lt;a href=&#34;www.google.com&#34; rel=&#34;nofollow&#34;&gt;Google&lt;/a&gt; Toutefois, un nouvel attribut a récémment nommé noopener et ce dernier intervient exclusivement lors de l&rsquo;usage de target=&quot;_blank&quot; sur un lien pour en améliorer la sécurité.
+En effet, Mathias Bynens (développeur V8 chez Chrome et chercheur en sécurité) a identifié que l&rsquo;ouverture d&rsquo;un lien dans une nouvelle fenêtre via target=&quot;_blank&quot; permettait à la page cible d&rsquo;intéragir avec l&rsquo;ensemble de la page appelante, et cela même si les domaines sont différents !"/>
+
+<meta itemprop="name" content="Pourquoi utiliser rel=&#39;noopener&#39; avec target=&#39;_blank&#39;">
+<meta itemprop="description" content="Dans le cadre du SEO, l&rsquo;attribut rel en HTML est déjà connu pour indiquer à un crawler s&rsquo;il doit suivre ou non un lien :
+&lt;a href=&#34;www.google.com&#34; rel=&#34;nofollow&#34;&gt;Google&lt;/a&gt; Toutefois, un nouvel attribut a récémment nommé noopener et ce dernier intervient exclusivement lors de l&rsquo;usage de target=&quot;_blank&quot; sur un lien pour en améliorer la sécurité.
+En effet, Mathias Bynens (développeur V8 chez Chrome et chercheur en sécurité) a identifié que l&rsquo;ouverture d&rsquo;un lien dans une nouvelle fenêtre via target=&quot;_blank&quot; permettait à la page cible d&rsquo;intéragir avec l&rsquo;ensemble de la page appelante, et cela même si les domaines sont différents !"><meta itemprop="datePublished" content="2020-04-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="351">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">01</span>
+<span class="rest">Apr 2020</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Pourquoi utiliser rel=&#39;noopener&#39; avec target=&#39;_blank&#39;</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;351&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Dans le cadre du SEO, l&rsquo;attribut <strong>rel</strong> en HTML est déjà connu pour indiquer à un <strong>crawler</strong> s&rsquo;il doit suivre ou non un lien :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;www.google.com&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;nofollow&#34;</span>&gt;Google&lt;/<span style="color:#f92672">a</span>&gt;
+</code></pre></div><p>Toutefois, un nouvel attribut a récémment nommé <strong>noopener</strong> et ce dernier intervient exclusivement lors de l&rsquo;usage de <code>target=&quot;_blank&quot;</code> sur un lien pour en améliorer la sécurité.</p>
+<p>En effet, Mathias Bynens (développeur V8 chez Chrome et chercheur en sécurité) a identifié que l&rsquo;ouverture d&rsquo;un lien dans une nouvelle fenêtre via <code>target=&quot;_blank&quot;</code> permettait à la page cible d&rsquo;intéragir avec l&rsquo;ensemble de la page appelante, et cela même si les domaines sont différents !</p>
+<p>Cela s&rsquo;explique par la présence d&rsquo;un objet <code>opener</code> présent dans le contexte global de la page cible contenant le contexte global de la page appelante !</p>
+<p><figure>
+  <img src="/articles/rel-noopener/opener_window.png" alt=""  />
+</figure></p>
+<h3 id="exemple-détaillé"><strong>Exemple détaillé</strong></h3>
+<p>Pour notre exemple, nous allons créer un simple fichier : <code>index.html</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// index.html
+&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.google.com/&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>&gt;Aller sur Google&lt;/<span style="color:#f92672">a</span>&gt;
+</code></pre></div><p>Ouvrez ensuite la page <code>index.html</code> puis cliquer sur le lien. Une nouvelle page s&rsquo;ouvre alors vous amenant sur Google. Jusque là, tout est normal.</p>
+<p>Maintenant ouvrez la console Chrome et entrez la commande <code>window.opener</code>, vous récupérez alors un objet JavaScript qui n&rsquo;est d&rsquo;autre que notre page <code>index.html</code> !
+Pour vous le confirmer, tapez dans la console JavaScript : <code>opener.location = &quot;https://www.google.com/intl/fr_fr/ads/&quot;</code>. Vous constatez alors que votre onglet contenant <code>index.html</code> renvoie dorénavant sur une page chez Google.</p>
+<p><figure>
+  <img src="/articles/rel-noopener/video_rel_noopener.gif" alt=""  />
+</figure></p>
+<p>Bien que Google n&rsquo;a aucun intérêt à faire cela, certaines personnes mal intentionnées (notamment sur des forums où la contribution est libre) pourrait en profiter pour renvoyer vers leurs propres pages&hellip; ou faire du <strong>phishing</strong> (<a href="https://www.wikiwand.com/fr/Hame%C3%A7onnage" target="_blank">https://www.wikiwand.com/fr/Hameçonnage</a>).</p>
+<h2 id="la-solution--relnoopener"><strong>La solution : rel=&ldquo;noopener&rdquo;</strong></h2>
+<p>Nous allons partir de notre exemple précedent et simplement ajouter <code>rel=&quot;noopener&quot;</code> dans notre lien :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://www.google.com/&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;noopener&#34;</span> <span style="color:#a6e22e">target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span>
+  &gt;Aller sur Google&lt;/<span style="color:#f92672">a</span>
+&gt;
+</code></pre></div><p>Et après avoir cliqué dessus, entrez <code>opener.location = &quot;https://www.google.com/intl/fr_fr/ads/&quot;</code> dans la console Chrome. Vous obtiendrez alors une erreur :</p>
+<p><figure>
+  <img src="/articles/rel-noopener/opener_error.png" alt=""  />
+</figure></p>
+<h2 id="support-navigateur"><strong>Support navigateur</strong></h2>
+<p>Pour le moment, entre les principaux navigateurs Web, seul Edge fait office de mauvais élève :</p>
+<p><figure>
+  <img src="/articles/rel-noopener/caniuse.png" alt=""  />
+</figure></p>
+<h2 id="sur-chrome--extension-no-opener-no-phishers"><strong>Sur Chrome : extension &lsquo;No Opener, no Phishers&rsquo;</strong></h2>
+<p>Si vous souhaitez que tous les liens <code>target=&quot;_blank&quot;</code> puisse avoir un attribut <code>rel=&quot;noopener&quot;</code>, il existe une extension Chrome pour cela :
+<a href="https://chrome.google.com/webstore/detail/no-opener-no-phishers/hieejlcohhkjbpiihgphcnaaiehphike" target="_blank">https://chrome.google.com/webstore/detail/no-opener-no-phishers/hieejlcohhkjbpiihgphcnaaiehphike</a></p>
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>

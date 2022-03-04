@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Svelte : un concurrent de poids face à React-Vue-Angular ? | Alexandre CANTIN - Blog personnel</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.92.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="alexandre, cantin, blog, personnel">
+<meta name="description" content="Svelte bouscule l’éco-système des librairies JavaScript actuellement dominé par le trio React, Vue et Angular. Mais que vaut Svelte comparé à ces …">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/all.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="/css/custom.css" />
+
+
+
+
+<meta property="og:title" content="Svelte : un concurrent de poids face à React-Vue-Angular ?" />
+<meta property="og:description" content="Svelte bouscule l’éco-système des librairies JavaScript actuellement dominé par le trio React, Vue et Angular. Mais que vaut Svelte comparé à ces “concurrents” et pourquoi parvient-il à séduire de plus en plus de développeurs ? Réponse dans cet article !
+Cet article est une transcription de ma présentation de Svelte réalisée le 2 juin 2020 dans le cadre du 10ème SFEIR Talk, dont la vidéo est disponible en fin d’article. J’ai toutefois pris la liberté d’ajouter des explications supplémentaires que je ne pouvais faire à l’oral pour des contraintes de temps; ainsi que les questions post-présentation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alexandre-cantin.github.io/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-08-02T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Svelte : un concurrent de poids face à React-Vue-Angular ?"/>
+<meta name="twitter:description" content="Svelte bouscule l’éco-système des librairies JavaScript actuellement dominé par le trio React, Vue et Angular. Mais que vaut Svelte comparé à ces “concurrents” et pourquoi parvient-il à séduire de plus en plus de développeurs ? Réponse dans cet article !
+Cet article est une transcription de ma présentation de Svelte réalisée le 2 juin 2020 dans le cadre du 10ème SFEIR Talk, dont la vidéo est disponible en fin d’article. J’ai toutefois pris la liberté d’ajouter des explications supplémentaires que je ne pouvais faire à l’oral pour des contraintes de temps; ainsi que les questions post-présentation."/>
+
+<meta itemprop="name" content="Svelte : un concurrent de poids face à React-Vue-Angular ?">
+<meta itemprop="description" content="Svelte bouscule l’éco-système des librairies JavaScript actuellement dominé par le trio React, Vue et Angular. Mais que vaut Svelte comparé à ces “concurrents” et pourquoi parvient-il à séduire de plus en plus de développeurs ? Réponse dans cet article !
+Cet article est une transcription de ma présentation de Svelte réalisée le 2 juin 2020 dans le cadre du 10ème SFEIR Talk, dont la vidéo est disponible en fin d’article. J’ai toutefois pris la liberté d’ajouter des explications supplémentaires que je ne pouvais faire à l’oral pour des contraintes de temps; ainsi que les questions post-présentation."><meta itemprop="datePublished" content="2021-08-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-08-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4568">
+<meta itemprop="keywords" content="" />
+</head>
+<body>
+<header>
+<div id="titletext">
+<h2 id="titleonly"><a href="https://alexandre-cantin.github.io/">Alexandre CANTIN - Blog personnel</a></h2>
+</div>
+<div id="title-social">
+<div id="social">
+<nav><ul>
+<li><a href="https://twitter.com/Cantin_Al"><i title="Twitter" class="icons fab fa-twitter"></i></a></li>
+<li><a><i title="Switch Dark Mode" class="dark-mode icons fas fa-moon"></i></a></li>
+</ul></nav>
+</div>
+</div>
+</header>
+<main>
+<div class="post">
+<article>
+<div class="post-header">
+<div class="meta">
+<div class="date">
+<span class="day">02</span>
+<span class="rest">Aug 2021</span>
+</div>
+</div>
+<div class="matter">
+<h1 class="title">Svelte : un concurrent de poids face à React-Vue-Angular ?</h1>
+<p class="post-meta">
+<span class="post-meta">
+
+&nbsp;<i class="fas fa-clock"></i>&nbsp;22&nbsp;minutes
+
+
+ 
+&nbsp;| &nbsp;
+
+<i class="fas fa-book"></i>&nbsp;4568&nbsp;words
+
+
+</span>
+
+</p>
+</div>
+</div>
+<div class="markdown">
+<p>Svelte bouscule l’éco-système des librairies JavaScript actuellement dominé par le trio React, Vue et Angular. Mais que vaut Svelte comparé à ces “concurrents” et pourquoi parvient-il à séduire de plus en plus de développeurs ? Réponse dans cet article !</p>
+<p>Cet article est une transcription de ma présentation de Svelte réalisée le 2 juin 2020 dans le cadre du 10ème SFEIR Talk, dont la vidéo est disponible en fin d’article. J’ai toutefois pris la liberté d’ajouter des explications supplémentaires que je ne pouvais faire à l’oral pour des contraintes de temps; ainsi que les questions post-présentation.</p>
+<p>Allons-y !</p>
+<h2 id="1--pourquoi-svelte-">1- Pourquoi Svelte ?</h2>
+<p>Nous allons commencer par la question la plus basique qui soit : qu’est-ce que Svelte ?</p>
+<p><a href="https://svelte.dev/" target="_blank">Svelte</a> est un “compilateur <em>front</em>” qui permet de créer des pages web dynamiques comme nous le faisons déjà avec Angular-React-Vue.js (ou d’autres bibliothèques/frameworks dans le monde très — voire trop — vaste du JavaScript).</p>
+<p>Pour désigner Svelte, j’ai utilisé le terme de “compilateur front” et, en effet, contrairement à React-Vue-Angular, qui embarquent des librairies dans le navigateur du client, Svelte est un compilateur et, comme on va le voir, cela va changer pas mal de choses 🙂</p>
+<h3 id="11--pourquoi-svelte-est-un-compilateur-">1.1 — Pourquoi Svelte est un compilateur ?</h3>
+<p>Pour répondre à cette question, nous devons tout d’abord nous attarder sur l’origine de Svelte et parler de son créateur Rich Harris (<a href="https://twitter.com/Rich_Harris" target="_blank">@Rich_Harris</a>).</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_1NDCpMUDlHcsg0QwTiJIQg.jpeg" alt="Rich Harris, le créateur de Svelte"  />
+</figure></p>
+<p>Rich Harris n’est pas un inconnu dans l’univers du JavaScript car on le connaît déjà en tant que créateur de <a href="https://rollupjs.org/guide/en/" target="_blank"><em>Rollup</em></a>, une alternative à <a href="https://webpack.js.org/" target="_blank"><em>Webpack</em></a>.</p>
+<p>Aux alentours de 2016, Rich Harris travaille en tant que <em>graphics editors</em> (comprendre “créateur de représentations graphiques” ou <em>Data Visualisation</em>) au <em>New York Times</em> (poste qu’il occupe toujours). Pour la réalisation de ses graphiques animés, Rich Harris utilise à cette époque <a href="https://reactjs.org/" target="_blank">React</a> et il en est très mécontent car il se heurte souvent aux limites des performances de cette bibliothèque (et de son <em>Virtual DOM</em>), au point qu’il réfléchit à développer sa propre alternative.</p>
+<p>Qu’est-ce que Rich Harris reproche à React et surtout à son <em>Virtual DOM</em> ? Pour y répondre, intéressons-nous au fonctionnement du Virtual DOM avec cet exemple simple d’un champ texte dont la valeur est recopiée dans une balise <code>&lt;p&gt;</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">App</span>() {
+  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">setName</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateName</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#a6e22e">setName</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>);
+  }
+  <span style="color:#66d9ef">return</span> (
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Votre</span> <span style="color:#a6e22e">nom</span> <span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">name</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">onInput</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">updateName</span>} <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">name</span>} <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+  );
+}
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</code></pre></div><p>Et dont le résultat serait le suivant :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_3sxYGeH4bzHmj6Grgp_ETQ.gif" alt=""  />
+</figure></p>
+<p>Si l’on s’intéresse au fonctionnement de React en cas d’écriture dans le champ texte, nous avons la succession d’évènements suivante :</p>
+<ol>
+<li>Création d’un nouveau <em>Virtual DOM</em></li>
+</ol>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_fkTrfHaWI0sNBWW_c48g-w.png" alt=""  />
+</figure></p>
+<ol start="2">
+<li>Comparaison de l’ancien <em>Virtual DOM</em> avec le nouveau pour déterminer les mises à jour nécessaires</li>
+</ol>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_0qpP3Zwlv3eS_u6G0b1r_w.png" alt=""  />
+</figure></p>
+<ol start="3">
+<li>Mise à jour effective du DOM</li>
+</ol>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_CvL_w_GAtidbbPNQwD3q0g.png" alt=""  />
+</figure></p>
+<p>Comme on peut le voir à l’étape 2, React a procédé à 7 comparaisons alors que 2 d’entre elles n’étaient réellement nécessaires. Ce nombre de comparaisons augmentera d’ailleurs proportionnellement à la taille de notre projet et ralentira notre application au bout d’un certain moment ; nous imposant alors de recourir à des procédés d’optimisation du Virtual DOM comme <em>PureComponent</em>, <em>useCallback</em>, <em>useMemo</em> ou encore <em>shouldComponentUpdate</em>.</p>
+<p>Toutefois, nous serons tous d’accord sur le fait que la solution idéale serait de passer directement de la modification du champ texte à la mise à jour du DOM, sans les étapes 1 et 2 :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_ARl9dEolEvk3H61AhXYBFA.gif" alt=""  />
+</figure></p>
+<p>Figurez-vous que c’est exactement l’objectif visé par Svelte !</p>
+<p>Malheureusement, déterminer l’ensemble des conséquences sur le DOM est impossible sans une connaissance accrue de l’application et nécessiterait donc l’intervention au cas par cas du développeur, occasionnant une charge de travail conséquente pour lui&hellip; 😔 Ce fut d’ailleurs la grande innovation apportée par React et Angular : automatisez la génération du DOM et limiter le travail du développeur à la modification de l’état de ses variables.</p>
+<p>Par conséquent, comment déterminer les actions minimales à effectuer sur le DOM suite à l’action de l’utilisateur sans l’intervention du développeur ? C’est là que le concept de compilateur prend tout son sens.</p>
+<p>Ainsi, nous écrirons nos composants dans des fichiers au format <code>.svelte</code>. Le compilateur Svelte va ensuite analyser notre code, le comprendre, déterminer les mises à jour du DOM nécessaires après à la modification d&rsquo;une variable et générer un fichier <code>.js</code> aux performances optimales :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_o5OFbfVTUoVjbs8p9I5DUg.gif" alt=""  />
+</figure></p>
+<h3 id="12--svelte-et-la-performance">1.2 — Svelte et la performance</h3>
+<p>Maintenant si on regarde le même composant écrit en Svelte, nous ne serons que peu dépaysés par rapport à son équivalent React :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">updateName</span>(<span style="color:#a6e22e">e</span>) {
+    <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>;
+  }
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Votre nom :&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;{name}&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">on:input</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{updateName}&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{name}&#34;</span> /&gt;
+</code></pre></div><p>Nous retrouvons la même logique :</p>
+<ul>
+<li>une balise <code>&lt;p&gt;</code> affichant le contenu de la variable <code>name</code></li>
+<li>un <code>&lt;input /&gt;</code> qui appelle une fonction <code>updateName</code> suite à une action <code>on:input</code></li>
+<li>une fonction <code>updateName</code> qui met à jour la valeur de <code>name</code> avec le contenu de l&rsquo;input</li>
+</ul>
+<p>Et on obtient un résultat similaire :
+<figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_3sxYGeH4bzHmj6Grgp_ETQ.gif" alt=""  />
+</figure></p>
+<p>Toutefois, si on regarde le code source généré par Svelte et notamment le bloc réservé à la mise du DOM :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_SD8L2dhcPA4rgGY_is01VQ.png" alt=""  />
+</figure></p>
+<p>On remarque que seules deux opérations sur le DOM ont été créées :</p>
+<ul>
+<li>celle de la mise à jour de la balise <code>&lt;p&gt;</code> (correspondant à une variable <code>t2</code>)</li>
+<li>celle de la mise à jour de l’attribut <code>value</code> de l&rsquo;input</li>
+</ul>
+<p>De plus, ces deux opérations sont optimales : les valeurs sont mises à jour directement sans actions intermédiaires. On obtient ainsi une performance maximale, impossible en React.</p>
+<blockquote>
+<p>⚠️ N’interprétez pas mal mes paroles : je n’ai pas dit que React est lent. Svelte explore simplement une autre voie lui permettant d’aller plus loin en termes de performance 🙂.</p>
+</blockquote>
+<h3 id="13--svelte-et-le-sucre-syntaxique">1.3 — Svelte et le sucre syntaxique</h3>
+<p>Toutefois, soyons honnête, nous nous retrouvons très rarement dans le cas où des performances extrêmes sont requises et choisir Svelte juste pour cela serait peu pertinent. Mais l’approche compilateur apporte un autre avantage qui est le “sucre syntaxique”.</p>
+<p>Il s’agit d’un ensemble de raccourcis (pas des centaines rassurez-vous 🙂) qui va vous permettre d’écrire moins de code et bénéficier de tous les avantages que cela implique : moins de code à produire (et donc une amélioration de votre productivité) mais aussi moins de code à maintenir et comprendre.</p>
+<p>Par exemple, en partant du code précédent, il est possible de le raccourcir en liant directement la valeur de l’attribut <code>value</code> de l&rsquo;input avec la variable <code>name</code> via une directive appelée <code>bind</code>.</p>
+<p>Il est donc possible de simplifier l’exemple précédent en retirant le <code>on:input={updateName}</code> et la fonction <code>updateName</code> par la même occasion. Nous obtenons ainsi le même résultat mais en plus court :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Votre nom :&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">p</span>&gt;{name}&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#960050;background-color:#1e0010">**</span><span style="color:#a6e22e">bind:</span><span style="color:#960050;background-color:#1e0010">**</span><span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{name}&#34;</span> /&gt;
+</code></pre></div><p>C’est une raison, si ce n’est la raison, qui explique l’appréciation de Svelte auprès des développeurs, car on écrit tout simplement moins de code et on est par conséquent plus productif 🙂</p>
+<p>Voici, par ailleurs, la comparaison d’un même composant, réalisant l’addition entre deux nombres puis affichant le résultat, et on ne peut que constater que la version de Svelte est plus légère :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_CCaPfes8QkkpjWNKx6H_kA.png" alt=""  />
+</figure></p>
+<p>Selon Rich Harris, un composant Svelte est en moyenne 20–30% moins long que son équivalent React.</p>
+<h2 id="14--svelte-et-le-poids-du-bundle">1.4 — Svelte et le poids du bundle</h2>
+<p>Dernier point important concernant Svelte est le fait qu’il produise un <em>bundle</em> final avec un poids très faible. En effet, bien que Svelte pèse environ 50 Ko dans son ensemble, seules les fonctions utilisées seront incluses dans le <em>bundle</em> final. Ainsi, contrairement à Angular-React-Vue, nous n’avons pas une librairie pré-inclue qui alourdit notre application avant même que le moindre code n’y soit inclus.</p>
+<p>Ainsi, dans l’exemple précédent, nous nous retrouvons avec un poids global de 3,1 Ko (sans compression).</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_hmnTwDMJbb1Er1lyaVoXHA.png" alt=""  />
+</figure></p>
+<p>D’ailleurs, si on s’intéresse au <code>package.json</code> du template par défaut d&rsquo;un projet <a href="https://github.com/sveltejs/template/blob/master/package.json" target="_blank">Svelte</a>, on remarque qu&rsquo;il n&rsquo;y a que des paquets servant pour le développement et aucun n&rsquo;est conservé dans le bundle de production :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_rVPWIbg5xPqJIC2b2FGHTg.png" alt=""  />
+</figure></p>
+<p>Note : le package <code>sirv-cli</code> sert comme serveur de fichier et peut donc être déplacé dans les <code>devDependencies</code> sans souci 🙂 (mais doit toutefois être conservé pour l&rsquo;environnement de développement).</p>
+<p>Comme nous venons de le voir dans cette partie, Svelte se distingue sur trois aspects :</p>
+<ul>
+<li>Performance accrue</li>
+<li>Un poids final réduit</li>
+<li>&hellip;le tout avec moins de code</li>
+</ul>
+<p>Je pourrais même ajouter un quatrième point qui serait sa simplicité. En effet, une des volontés derrière Svelte, est de se rapprocher le plus possible du HTML et laisser toute la complexité être gérée par le compilateur (optimisation et implémentation des raccourcis syntaxiques).</p>
+<hr>
+<h2 id="2--tour-dhorizon-de-svelte">2 — Tour d’horizon de Svelte</h2>
+<p>Nous allons dorénavant procéder à un tour d’horizon des fonctionnalités proposées par Svelte, forcément non exhaustif.</p>
+<h3 id="21--anatomie-dun-composant">2.1 — Anatomie d’un composant</h3>
+<p>Un composant Svelte se divise en trois parties :</p>
+<ul>
+<li><code>&lt;script&gt;</code> pour la partie logique, pour les fonctions et les variables</li>
+<li><code>&lt;style&gt;</code> pour la partie design</li>
+</ul>
+<p>Tout le reste sera considéré comme la partie template et sera donc destiné à accueillir (majoritairement) du HTML
+<figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_0RKJQ4yrITW93CAuytNODA.png" alt=""  />
+</figure></p>
+<p>Ici, la volonté est d’être le plus proche possible d’un fichier HTML tout en gardant que le strict nécessaire. En ajoutant, les balises <code>html</code>, <code>head</code> et <code>body</code>, on pourrait même se croire à l&rsquo;intérieur d&rsquo;un fichier HTML :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_lriOOUkFuc6a1cY55Xgb9w.png" alt=""  />
+</figure></p>
+<blockquote>
+<p>⚠️ <strong>Est-il possible de répartir ces trois zones dans des fichiers distincts ?</strong> Non, ce n’est pas possible et ce n’est pas dans la philosophie de Svelte. Bien que la logique de séparation des différents blocs puisse être louable, cela créait un effet de bord. Il devient possible d’inclure un même style ou logique dans des composants différents et entraîne un souci qu’on rencontre très souvent (notamment en CSS) : on ne sait plus si un bloc de code est utilisé ou non au sein de son application. Pour pallier à cela, Svelte impose que les fonctions/style co-habitent avec leur template pour mieux suivre leur zone d’impact.</p>
+</blockquote>
+<h3 id="22--style">2.2 — Style</h3>
+<p>Vous savez faire du CSS ? Bonne nouvelle, vous savez donc déjà designer vos composants Svelte ! En effet, Svelte accepte du CSS natif dans le bloc <code>&lt;style&gt;</code> (un support de Sass ou Less reste toutefois possible) :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_dvOa9AhhgzJsN2iHnM_xXA.png" alt=""  />
+</figure></p>
+<p>Toutefois, le compilateur Svelte va encapsuler ce style avec une classe CSS générée aléatoirement, pour s’assurer que votre style n’affectera pas d’autres composants :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_SItiqptpoqSk5lo3t93hLQ.png" alt=""  />
+</figure></p>
+<h3 id="23--templating">2.3 — Templating</h3>
+<h4 id="231--conditions">2.3.1 — Conditions</h4>
+<p>Svelte nous permet bien entendu de modifier le rendu du composant en fonction de conditions exprimées entre accolades :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">number</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+&lt;/<span style="color:#f92672">script</span>&gt;
+{#if number &lt; <span style="color:#f92672">0</span> <span style="color:#960050;background-color:#1e0010">}</span>
+<span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#a6e22e">p</span>&gt;Négatif&lt;/<span style="color:#f92672">p</span>&gt;
+{:else if number &gt; 0 }
+&lt;<span style="color:#f92672">p</span>&gt;Positif&lt;/<span style="color:#f92672">p</span>&gt;
+{:else}
+&lt;<span style="color:#f92672">p</span>&gt;Égal à 0&lt;/<span style="color:#f92672">p</span>&gt;
+{/if}
+</code></pre></div><p>Ces conditions respectent les mêmes règles d’écriture que celles du JavaScript.</p>
+<h4 id="232--boucles">2.3.2 — Boucles</h4>
+<p>Il est aussi possible d’itérer à travers une collection via <code>{#each myCollection as myValue, index}</code></p>
+<p>À noter que Svelte prévoit aussi une alternative <code>{:else}</code> afin de gérer plus facilement le cas où notre collection serait vide.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>];
+&lt;/<span style="color:#f92672">script</span>&gt;
+{#each numbers as number, index}
+&lt;<span style="color:#f92672">p</span>&gt;{index} =&gt; {number}&lt;/<span style="color:#f92672">p</span>&gt;
+{:else}
+&lt;<span style="color:#f92672">p</span>&gt;Liste vide&lt;/<span style="color:#f92672">p</span>&gt;
+{/each}
+</code></pre></div><p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_FlTtfttcm-y4X5QDVCBsHQ.png" alt=""  />
+</figure></p>
+<p>Le <em>destructuring</em> est aussi possible directement après le <code>as</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [
+    { <span style="color:#a6e22e">year</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2019&#34;</span>, <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;30&#34;</span> },
+    { <span style="color:#a6e22e">year</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2020&#34;</span>, <span style="color:#a6e22e">count</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;35&#34;</span> },
+  ];
+&lt;/<span style="color:#f92672">script</span>&gt;
+{#each data as { year, count }}
+&lt;<span style="color:#f92672">p</span>&gt;{year} =&gt; {count}&lt;/<span style="color:#f92672">p</span>&gt;
+{/each}
+</code></pre></div><p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_9IaTxxry2DHM4RaRZrDA7g.png" alt=""  />
+</figure></p>
+<h4 id="233--promesses">2.3.3 — Promesses</h4>
+<p>Svelte met aussi à disposition une syntaxe <code>{#await}</code> faisant varier l&rsquo;affichage d&rsquo;un composant en fonction du statut d&rsquo;une promesse (en cours, terminée ou échouée) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{#await promise}
+&lt;<span style="color:#f92672">p</span>&gt;...&lt;/<span style="color:#f92672">p</span>&gt;
+{:then number}
+&lt;<span style="color:#f92672">p</span>&gt;Le nombre est {number}&lt;/<span style="color:#f92672">p</span>&gt;
+{:catch error}
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;error&#34;</span>&gt;{error.message}&lt;/<span style="color:#f92672">p</span>&gt;
+{/await}
+</code></pre></div><p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_euj1gHznxnoBLVEjd9dGPg.png" alt=""  />
+</figure></p>
+<h3 id="23--gestion-des-propriétés">2.3 — Gestion des propriétés</h3>
+<p>Svelte, tout comme Angular-Vue-React, fonctionne via un système de composants et n’innove d’ailleurs guère dans ce domaine. On peut ainsi créer ses propres composants et les inclure dans d’autres composants en leur passant une ou plusieurs propriétés.</p>
+<p>Afin d’expliciter si une variable est une propriété, il faut la préfixer par le mot-clé <code>export</code> dans le composant enfant :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Composant enfant --&gt;</span>
+&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">export</span> <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span>;
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h2</span>&gt;Hello {name}&lt;/<span style="color:#f92672">h2</span>&gt;
+</code></pre></div><p>Nous obtenons ainsi le résultat suivant :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_GthtNY5S2p33UtcdyonjmA.png" alt=""  />
+</figure></p>
+<blockquote>
+<p>☝️ Il peut sembler bizarre d’employer le mot export pour indiquer une propriété mais cela me donne l&rsquo;opportunité de m&rsquo;attarder sur le fonctionnent du compilateur Svelte. Ce dernier attend du JavaScript natif dans le bloc script (parsé avec la librairie <a href="https://www.npmjs.com/package/acorn" target="_blank">acorn</a> pour les plus curieux). Toutefois, Svelte surcharge JavaScript et par conséquent, la sémantique d&rsquo;un mot-clé peut dès fois être modifiée, ce qui est exactement le cas ici 🙂</p>
+</blockquote>
+<h3 id="24--bloc-réactif-avec-">2.4 — Bloc réactif avec $:</h3>
+<p>Voici un autre exemple de détournement de sémantique par Svelte que sont les blocs réactifs, définis par <code>$:</code>. Ces derniers sont des portions de code qui ne seront exécutées que si les variables qu&rsquo;ils utilisent sont modifiés :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;world&#34;</span>;
+
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">uppercase</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+  <span style="color:#a6e22e">$</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">uppercase</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>.<span style="color:#a6e22e">toUpperCase</span>();
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Hello {name}!&lt;/<span style="color:#f92672">h1</span>&gt;
+&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">bind:value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{name}&#34;</span> /&gt;
+&lt;<span style="color:#f92672">p</span>&gt;Uppercase : {uppercase}&lt;/<span style="color:#f92672">p</span>&gt;
+</code></pre></div><p>Dans cet exemple, le <code>code uppercase = name.toUpperCase()</code> ne sera exécuté que si la variable <code>name</code> est modifiée. Autre cas d&rsquo;usage possible, on peut suivre la modification d&rsquo;une variable avec <code>$: console.log(maVariable)</code>.</p>
+<p>Le bloc réactif peut accueillir des cas plus complexes comme des conditions, pour une auto-complétion par exemple : <code>$: if(name.length &gt; 2) fetch(...)</code>. De manière générale, vous pouvez considérer les blocs réactifs comme des fonctions avec toutes les possibilités qu&rsquo;elles offrent 🙂</p>
+<p>En React, la fonction <code>useMemo</code> permet d&rsquo;obtenir ce même comportement. Toutefois, c&rsquo;est au développeur de déclarer lui-même les variables à surveiller :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">memoizedValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useMemo</span>(() =&gt; <span style="color:#a6e22e">computeExpensiveValue</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>), [<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>]);
+</code></pre></div><p>Au sein de Svelte, ces variables sont déduites à la compilation et dispense le développeur d’y réfléchir (et limite les risques d’oubli par la même occasion).</p>
+<blockquote>
+<p>❓ <strong>$: est-il une syntaxe valide en JavaScript ?</strong> Tout à fait ! Il s’agit de labels statements (servant dans les boucles) mais vu que personne ne les utilise, Svelte les a recyclé pour ses blocs réactifs. Pour en savoir plus : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/label" target="_blank">https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/label</a></p>
+</blockquote>
+<h3 id="25--animations">2.5 — Animations</h3>
+<p>Pour finir, Svelte nous facilite la création d’animations pour les éléments entrants ou sortants du DOM. Ces effets se réalisent via deux directives <code>in</code> et <code>out</code> dont les noms parlent d&rsquo;eux-mêmes. Svelte dispose déjà d&rsquo;animations de base, présentes dans le <em>package</em> <code>svelte/transition</code> mais il est possible de créer les vôtres (qui seront compilés en CSS3 pour obtenir de meilleures performances).</p>
+<p>Prenons maintenant un exemple avec celui d’un texte dont la visibilité dépend d’une case à cocher :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#f92672">**</span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">fade</span>, <span style="color:#a6e22e">fly</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;svelte/transition&#39;</span>;<span style="color:#f92672">**</span>
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">visible</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;checkbox&#34;</span> <span style="color:#a6e22e">bind:checked</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{visible}&#34;</span> /&gt;
+  visible
+&lt;/<span style="color:#f92672">label</span>&gt;
+{#if visible} **
+&lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">in:fly</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ y: 200, duration: 2000 }}&#34;</span> <span style="color:#a6e22e">out:fade</span>&gt;** Flies in, fades out&lt;/<span style="color:#f92672">p</span>&gt;
+{/if}
+</code></pre></div><p>Et au niveau du résultat, nous obtenons ainsi :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_lGuIsHvCdnMMRNrpoewl4g.png" alt=""  />
+</figure></p>
+<p>Selon vos librairies, ces animations peuvent être compliquées à créer mais, encore une fois, Svelte nous simplifie la tâche et nous permet en deux lignes de code — littéralement — de pouvoir créer des contenus animés.</p>
+<h3 id="26--les-stores">2.6 — Les stores</h3>
+<p>Nous allons maintenant évoquer la gestion des <em>stores</em> au sein de Svelte.</p>
+<blockquote>
+<p>👉 Un store permet de déporter une partie des données de notre site dans un endroit tiers, la librairie la plus connue étant Redux, utilisée principalement au sein de l’écosystème de React.</p>
+</blockquote>
+<h4 id="251--un-premier-store">2.5.1 — Un premier store</h4>
+<p>Pour notre premier store, nous prendrons l’exemple très inspiré d’un compteur.</p>
+<p>Au sein de Svelte, un store est un objet <code>writable</code> présent dans le package <code>svelte/store</code> qu&rsquo;il nous faut créer dans un fichier JavaScript (et donc pas un fichier au format <code>.svelte</code>) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// counter-store.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">writable</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;svelte/store&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">counter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">writable</span>(<span style="color:#ae81ff">0</span>);
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">counter</span>;
+</code></pre></div><p>Une fois le store de notre compteur créé, avec 0 comme valeur par défaut, il nous faut ensuite :</p>
+<ul>
+<li>l’importer dans notre composant</li>
+<li>s’y abonner via la fonction <code>subscribe</code> de notre <code>writable</code> en indiquant la fonction qui sera exécutée lors d&rsquo;une modification du store (ici, la mise à jour d&rsquo;une variable interne au composant)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#75715e">// Récupération du store
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">counter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./counter.js&#34;</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">countValue</span>;
+  <span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">subscribe</span>((<span style="color:#a6e22e">newStoreValue</span>) =&gt; (<span style="color:#a6e22e">countValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newStoreValue</span>));
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Counter : {countValue}&lt;/<span style="color:#f92672">h1</span>&gt;
+</code></pre></div><p>Malheureusement, cela n’est pas suffisant. En effet, il est aussi nécessaire de se désinscrire du store lors de la disparition du composant afin d’éviter une fuite mémoire. Pour cela, nous récupérons la fonction renvoyée par <code>subscribe</code> que nous appellerons dans la méthode <code>onDestroy</code>, entrant dans le cycle de vie d&rsquo;un composant Svelte :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">onDestroy</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;svelte&#34;</span>;
+  <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">counter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./counter.js&#34;</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">countValue</span>;
+  <span style="color:#75715e">// Récupération de la fonction de désinscription
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">unsubscribe</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">subscribe</span>(
+    (<span style="color:#a6e22e">newStoreValue</span>) =&gt; (<span style="color:#a6e22e">countValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newStoreValue</span>)
+  );
+
+  <span style="color:#75715e">// Désinscription du store à la destruction du composant
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">onDestroy</span>(() =&gt; <span style="color:#a6e22e">unsubscribe</span>());
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Counter : {countValue}&lt;/<span style="color:#f92672">h1</span>&gt;
+</code></pre></div><p>Et nous obtenons le rendu voulu :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_gjpM7PHdmXpSvnRDuzyxtg.png" alt=""  />
+</figure></p>
+<p>Pour interagir avec le store, deux méthodes sont à notre disposition :</p>
+<ul>
+<li><code>update</code> : avec en paramètre une fonction contenant la valeur courante du store</li>
+<li><code>set</code> : pour remplacer le contenu du store par une nouvelle valeur</li>
+</ul>
+<p>Ainsi, dans notre exemple, nous allons ajouter deux boutons : le premier pour incrémenter la valeur du store et un second pour réinitialiser le <em>store</em> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+	<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">onDestroy</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;svelte&#39;</span>
+	<span style="color:#75715e">// Récupération du store
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">counter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./counter.js&#39;</span>
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">countValue</span>;
+	<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">unsubscribe</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">counter</span>.<span style="color:#a6e22e">subscribe</span>((<span style="color:#a6e22e">newStoreValue</span>) =&gt; <span style="color:#a6e22e">countValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newStoreValue</span>)
+	<span style="color:#a6e22e">onDestroy</span>(() =&gt; <span style="color:#a6e22e">unsubscribe</span>())
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Counter : {countValue}&lt;/<span style="color:#f92672">h1</span>&gt;
+<span style="color:#75715e">&lt;!-- Ajout de deux boutons --&gt;</span>
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; counter.update(n =&gt; n+1)}&gt;+1&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; counter.set(0)}&gt;Reset&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_oiN6gxb9-lbRhR-NRch8ig.gif" alt=""  />
+</figure></p>
+<h4 id="252--encore-du-sucre-syntaxique">2.5.2 — Encore du sucre syntaxique</h4>
+<p>Toutefois, nous avons écrit beaucoup de code et Svelte, dans sa volonté de productivité, nous met à notre disposition un raccourci syntaxique. Ainsi, en préfixant le nom du store avec le signe <code>$</code>, nous pouvons accéder et interagir directement avec le contenu du <em>store</em>.</p>
+<p><code>&lt;h1&gt;Counter : {countValue}&lt;/h1&gt;</code> peut ainsi être remplacé par <code>&lt;h1&gt;Counter : {$counter}&lt;/h1&gt;</code>
+Cerise sur le gâteau, l’ajout de ce préfixe nous dispense d’utiliser <code>subscribe</code> et <code>onDestroy(() =&gt; unsubscribe())</code> 🥳</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span>&gt;
+  <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">counter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./counter.js&#34;</span>;
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">h1</span>&gt;Counter : {$counter}&lt;/<span style="color:#f92672">h1</span>&gt;
+</code></pre></div><p>Concernant les boutons, nous pouvons les simplifier de la manière suivante :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; $counter++}&gt;+1&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; $counter = 0}&gt;Reset&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><h4 id="253--un-store-personnalisé">2.5.3 — Un store personnalisé</h4>
+<p>Il est possible d’aller plus loin avec les <em>stores</em> en y ajoutant des méthodes personnalisées. En effet, les <code>writables</code> étant des objets JavaScript, il est possible de les encapsuler dans un objet et y ajouter vos propres méthodes.</p>
+<p>Pour commencer, il nous faut <em>déstructurer</em> l’objet <code>writable</code> dans une fonction qui retournera un objet constituant notre store personnalisé :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">writable</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;svelte/store&#34;</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createCounterStore</span>() {
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">subscribe</span>, <span style="color:#a6e22e">get</span>, <span style="color:#a6e22e">update</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">writable</span>(<span style="color:#ae81ff">0</span>);
+}
+</code></pre></div><p>Au niveau du retour de la fonction, il nous faut obligatoirement renvoyer la méthode <code>subscribe</code> pour bénéficier du raccourci syntaxique <code>$</code>. Dans un second temps, nous ajouterons une première fonction <code>increment</code> qui fera appel à <code>update</code> et une seconde fonction <code>reset</code> faisant appel à <code>set</code>. Nous obtenons ainsi :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">writable</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;svelte/store&#34;</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createCounterStore</span>() {
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">subscribe</span>, <span style="color:#a6e22e">set</span>, <span style="color:#a6e22e">update</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">writable</span>(<span style="color:#ae81ff">0</span>);
+  <span style="color:#75715e">// On renvoie subscribe et nos fonctions personnalisées
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">subscribe</span>,
+    <span style="color:#a6e22e">increment</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">n</span>) =&gt; <span style="color:#a6e22e">n</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>),
+    <span style="color:#a6e22e">reset</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">set</span>(<span style="color:#ae81ff">0</span>),
+  };
+}
+</code></pre></div><p>Pour finir avec notre <em>store</em> personnalisé, il nous faut instancier un nouvel objet et l’exporter :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">writable</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;svelte/store&#34;</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createCounterStore</span>() {
+  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">subscribe</span>, <span style="color:#a6e22e">set</span>, <span style="color:#a6e22e">update</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">writable</span>(<span style="color:#ae81ff">0</span>);
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">subscribe</span>,
+    <span style="color:#a6e22e">increment</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">update</span>((<span style="color:#a6e22e">n</span>) =&gt; <span style="color:#a6e22e">n</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>),
+    <span style="color:#a6e22e">reset</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">set</span>(<span style="color:#ae81ff">0</span>),
+  };
+}
+<span style="color:#75715e">// On créé puis exporte notre nouveau store
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">counter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createCounterStore</span>();
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">counter</span>;
+</code></pre></div><p>Au niveau des composants, il n’est plus nécessaire d’utiliser <code>$counter</code> pour interagir avec la valeur du <em>store</em> et nous pouvons appeler directement nos nouvelles méthodes (notez la disparition du <code>$</code> car nous utilisons les fonctions du store et non sa valeur 🙂) :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; $counter++}&gt;+1&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{()</span> <span style="color:#960050;background-color:#1e0010">=</span>&gt; $counter = 0}&gt;Reset&lt;/<span style="color:#f92672">button</span>&gt;~~
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{counter.increment}</span>&gt;+1&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">on:click</span><span style="color:#f92672">=</span><span style="color:#e6db74">{counter.reset}</span>&gt;Reset&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><p>Pour afficher le contenu du store, aucun changement à signaler :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- Toujours valable 🙂 --&gt;</span>
+&lt;<span style="color:#f92672">h1</span>&gt;Counter : {$counter} !&lt;/<span style="color:#f92672">h1</span>&gt;
+</code></pre></div><hr>
+<p>Il faudrait tout un livre pour explorer l’ensemble des possibilités offertes par Svelte mais heureusement un tutoriel est à votre disposition à cette adresse : <a href="https://svelte.dev/tutorial/basics" target="_blank">https://svelte.dev/tutorial/basics</a>.</p>
+<p>Ce dernier, de très bonne qualité, va vous permettre de découvrir une grande majorité des concepts de Svelte et vous rendre productif en environ une après-midi 🙂</p>
+<hr>
+<h2 id="3--quel-avenir-pour-svelte-">3 — Quel avenir pour Svelte ?</h2>
+<p>Il est temps de prendre un peu de recul et d’évoquer l’avenir de Svelte en commençant par quelques défauts.</p>
+<h3 id="31--défauts-de-svelte">3.1 — Défauts de Svelte</h3>
+<p>Malgré ses qualités, certains défauts doivent toutefois être évoqués :</p>
+<ul>
+<li>
+<p>Éloignement du JavaScript final : le code généré est très différent de celui que vous écrirez dans votre fichier <code>.svelte</code> et cela peut être gênant notamment en cas d&rsquo;erreur dans le code généré qu&rsquo;il est plus difficile à analyser. De même, certaines personnes peuvent être gênées par ce principe en lui-même.</p>
+</li>
+<li>
+<p>Eco-système jeune : comparés à Vue-Angular-React, les outils de développement sont moins avancés (pas de CLI) et beaucoup de librairies sur des besoins divers (formulaires, lecteurs vidéos, modales&hellip;) mais aucun ne font l’unanimité -encore- dans l’écosystème de Svelte, ce qui peut être compliqué pour un nouveau développeur Svelte.</p>
+</li>
+<li>
+<p>Peu de demandes : soyons honnête, Svelte n’est pas encore une technologie très demandée pour le moment et pour cause Angular-Vue-React dominent le marché dû à leur ancienneté (et leurs qualités aussi 🙂). Par conséquent, pour un décideur, cela facilite les roulements au sein de leurs équipes et, côté développeurs, déjà productifs dans une technologie donnée (et l’appréciant sûrement), se re-former sur une nouvelle technologie n’est pas forcément enviable.</p>
+</li>
+<li>
+<p>Comme entreprises notables utilisant Svelte, on peut citer Apple (qui diffuse des offres d’emploi demandant explicitement cette compétence), le <em>New York Times</em> (forcément dû à la présence de Rich Harris) et <a href="https://open.spotify.com/__noul__?pfhp=2c2ccb58-8a92-4713-a1c0-8b43b3090b49" target="_blank">Spotify</a> qui l’utilise notamment sur son site principal (certaines portions du site sont toutefois en React). On peut aussi citer Philips, Les Echos, <a href="https://www.chess.com/" target="_blank">Chess.com</a> ou encore Rakuten (d’autres sont visibles à l’adresse suivante : <a href="https://svelte.dev/" target="_blank">https://svelte.dev/</a>)</p>
+</li>
+</ul>
+<p>Bien sûr, certains de ces défauts sont dûs à la jeunesse du projet, la version 3 de Svelte étant sortie en avril 2019, mais grâce à une communauté active sur <a href="https://discord.com/invite/yy75DKs" target="_blank">Discord</a>, espérons que ces soucis disparaîtront un jour 😉.</p>
+<h3 id="32--trois-géants-qui-évoluent-aussi">3.2 — Trois géants qui évoluent aussi</h3>
+<p>Dans l’univers des librairies/<em>framework front</em>, trois géants sont déjà présents que nous avons évoqué tout au long de cet article :</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_uVxuNLLwEIjdLXPm8_0ueA.png" alt=""  />
+</figure></p>
+<p>Et bien que Svelte utilise la compilation comme source d’innovation, ces trois librairies évoluent aussi et reprennent dorénavant à leur compte les avantages de la compilation :</p>
+<ul>
+<li>
+<p><strong>Vue.js</strong> dans sa version 3, analysera votre code pour optimiser son <em>Virtual DOM</em> et ne conserver que les comparaisons nécessaires</p>
+</li>
+<li>
+<p><strong>Angular</strong> avec Ivy, analyse aussi votre code pour diminuer drastiquement le poids du <em>bundle</em> final en retirant toutes les fonctions non-utilisées.</p>
+</li>
+<li>
+<p><strong>React</strong> de son côté n’a aucune évolution connue basée sur une analyse du code. Nous pouvons toutefois noter une expérimentation d’un des créateurs de Webpack qui a tenté de transformer du code React en équivalent VanillaJs. En résultat, un bundle de 4.3 Ko, bien maigre comparé au 115 Ko qu’on obtiendrait en temps normal et prouvant que la compilation pouvait avoir un avenir au sein de React. Cette expérimentation est disponible à cette adresse : <a href="https://github.com/sokra/rawact" target="_blank">https://github.com/sokra/rawact</a>.</p>
+</li>
+</ul>
+<p>À noter toutefois qu’en mai 2020, Microsoft a introduit un système de création de sites statiques et a retenu quatre technologies pour ses tutoriels : React, Angular, Vue et&hellip; Svelte ! Un signe qui semble indiquer que Microsoft le considère comme une technologie suscitant assez d’engouement pour le prendre en considération.</p>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_og4VcnOuM7GZhnOC1e1xJA.png" alt=""  />
+</figure></p>
+<h2 id="4--faq">4 — F.A.Q</h2>
+<p><strong>Comment fonctionne le routing dans un projet Svelte ?</strong></p>
+<p>Il existe une myriade de librairies de routing disponibles dans Svelte mais je vais mettre les deux librairies dont j’ai le plus entendu parler :</p>
+<ul>
+<li>
+<p><a href="https://svelte.dev/blog/sveltekit-beta" target="_blank">SvelteKit</a> : le template officiel d’un projet Svelte (en alpha depuis le 23 mars 2021) et se basant sur Vite 2 et inspiré par Nextjs. Pas de support de TypeScript pour le moment ni de SCSS ou LESS mais ils sont prévus pour la version 1.0 du projet.</p>
+</li>
+<li>
+<p><a href="https://github.com/EmilTholin/svelte-routing" target="_blank">Svelte-routing</a> : qui permet de créer un système de manière similaire à React :</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blog/:id&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{BlogPost}&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blog&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{Blog}&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;about&#34;</span> <span style="color:#a6e22e">component</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{About}&#34;</span> /&gt;
+  &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>&gt;&lt;<span style="color:#f92672">Home</span> /&gt;&lt;/<span style="color:#f92672">Route</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><ul>
+<li><a href="https://www.routify.dev/" target="_blank">Routify</a> : qui fonctionne par système de fichiers. La hiérarchie de vos fichiers correspondra ainsi à vos URLs :</li>
+</ul>
+<p><figure>
+  <img src="/articles/svelte-un-concurrent-de-poids-face-a-react-vue-angular/1_0bt4AEc4aSA5OwzkmvGxYA.png" alt=""  />
+</figure></p>
+<hr>
+<p><strong>Comment tester mes composants ?</strong></p>
+<p>Il existe plusieurs librairies permettant de tester ces composants :</p>
+<ul>
+<li><a href="https://testing-library.com/docs/svelte-testing-library/example" target="_blank">https://testing-library.com/docs/svelte-testing-library/example</a></li>
+<li><a href="https://nathancahill.com/dainte/introducing" target="_blank">https://nathancahill.com/dainte/introducing</a></li>
+<li><a href="https://github.com/bahmutov/cypress-svelte-unit-test" target="_blank">https://github.com/bahmutov/cypress-svelte-unit-test</a></li>
+</ul>
+<hr>
+<p><strong>Quelle est la compatibilité en termes de navigateur ?</strong></p>
+<p>La compatibilité va dépendre de deux éléments : la compatibilité des fonctions internes de Svelte et de votre code.</p>
+<p>Le code interne de Svelte est compatible avec Internet Explorer 11 et, bien que je n’ai pas à disposition de données précises pour les autres navigateurs, le support de IE 11 me laisse serein concernant la prise en compte de Firefox, Chrome, Safari&hellip; 🙂</p>
+<hr>
+<p><strong>Peut-on ajouter Sass ?</strong></p>
+<p>C’est possible mais cela n’est pas inclus dans le template Svelte par défaut. Pour utiliser Sass, il faut installer quelques <em>packages</em> et ajouter quelques lignes dans la configuration Rollup du projet. Exemple de <em>package</em> : <a href="https://www.npmjs.com/package/svelte-preprocess-sass" target="_blank">https://www.npmjs.com/package/svelte-preprocess-sass</a>.</p>
+<hr>
+<p><strong>Les stores utilisent-ils les Observables ?</strong></p>
+<p>Non, au niveau interne, Svelte stocke les fonctions dans un tableau (lors du <code>subscribe</code>) et itère sur l&rsquo;ensemble des fonctions du tableau après un <code>update</code> ou un <code>set</code>.</p>
+<hr>
+<p><strong>Peut-on utiliser Redux ?</strong></p>
+<p>Même s’il serait regrettable de ne pas profiter du fonctionnement natif des stores au sein de Svelte (et surtout du raccourci <code>$</code>), il est tout à fait envisageable d&rsquo;inclure Redux au sein de votre projet. Redux étant une librairie JavaScript comme une autre après tout 🙂</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>L’approche compilateur choisie par Svelte nous apporte son lot d’améliorations : plus de performance, poids réduit et le tout avec moins de code.</p>
+<p>Mais, au final quel avenir pour Svelte ? Cela va dépendre principalement de l’engouement des développeurs et leur volonté de lui donner sa chance dans un projet (sûrement de faible envergure pour commencer). C’est d’ailleurs ce que je vous conseille afin de mieux appréhender Svelte et développer votre propre opinion 🙂.</p>
+<p>Si vous souhaitez un retour d’expérience d’une transposition d’un site React vers Svelte, je vous conseille de lire cet article de Mathieu Marchois :</p>
+<p><a href="https://fairness.coop/blog/2020/sveltejs-plus-qu-une-simple-alternative-a-react-vue-angular/" target="_blank">SvelteJS, plus qu’une simple alternative à React, Vue ou Angular</a>, où l’auteur explique notamment que suite à la réécriture en Svelte, le nombre de lignes du projet a chuté de 25000 à 8000 !</p>
+<h2 id="mon-avis">Mon avis</h2>
+<p>Pour ma part, j’ai découvert Svelte via la conférence “Rethink reactivity” qui m’a donné envie de m’y intéresser plus longuement. Et après avoir parcouru le tutoriel (très bien fait, je le re-précise 😊), j’ai expérimenté Svelte sur des projets personnels (que je ne finis jamais… 😔) et je dois avouer que l’expérience développeur me semble un grand cran au-dessus de React, malgré les besoins de modifier la configuration Rollup pour supporter Sass par exemple.</p>
+<p>Clairement, Svelte fera parti de ma <em>stack</em> de prédilection en remplacement de React, si jamais l’occasion se présente.</p>
+<h2 id="pour-aller-plus-loin-">Pour aller plus loin :</h2>
+<p>La suite logique de cet article est la conférence “Rethink reactivity” où Rich Harris y présente la version 3 de Svelte ainsi que ses griefs contre React :</p>
+<p><a href="http://www.youtube.com/watch?v=AdNJ3fydeao" title="Rethinking reactivity" target="_blank"><figure>
+  <img src="http://img.youtube.com/vi/AdNJ3fydeao/0.jpg" alt="Rethinking reactivity"  />
+</figure></a></p>
+<ul>
+<li>Tutoriel Svelte : <a href="https://svelte.dev/tutorial/basics" target="_blank">https://svelte.dev/tutorial/basics</a></li>
+<li>Retour expérience Svelte : <a href="https://fairness.coop/blog/2020/sveltejs-plus-qu-une-simple-alternative-a-react-vue-angular/" target="_blank">SvelteJS, plus qu’une simple alternative à React, Vue ou Angular</a></li>
+<li>The Return of ‘Write Less, Do More’ by Rich Harris | JSCAMP 2019 : <a href="https://youtu.be/BzX4aTRPzno" target="_blank">https://youtu.be/BzX4aTRPzno</a></li>
+<li>Let’s Learn Svelte (with Rich Harris) — Learn With Jason : <a href="https://youtu.be/ogXETl_I0Dg" target="_blank">https://youtu.be/ogXETl_I0Dg</a></li>
+<li>Svelte Society Day 2020 — Tan Li Hau: The Svelte Compiler : <a href="https://youtu.be/e2pGS1eqja8" target="_blank">https://youtu.be/e2pGS1eqja8</a></li>
+<li>Site de Svelte : <a href="https://svelte.dev/" target="_blank">https://svelte.dev/</a></li>
+<li>Documentation de SvelteKit : <a href="https://kit.svelte.dev/docs" target="_blank">https://kit.svelte.dev/docs</a></li>
+<li>Exemples de réalisations avec Svelte : <a href="https://svelte.dev/examples" target="_blank">https://svelte.dev/examples</a></li>
+<li>Projets réalisés avec Svelte : <a href="https://madewithsvelte.com/" target="_blank">https://madewithsvelte.com/</a></li>
+<li>Sur Twitter : <a href="https://twitter.com/SvelteSociety" target="_blank">@SvelteSociety</a> <a href="https://twitter.com/sveltejs" target="_blank">@sveltejs</a> <a href="https://twitter.com/Rich_Harris" target="_blank">@Rich_Harris</a> <a href="https://twitter.com/lihautan" target="_blank">@lihautan</a></li>
+</ul>
+<hr>
+<p>Pour revoir la vidéo dans son format d’origine, je vous invite à consulter la vidéo suivante :</p>
+<p><a href="http://www.youtube.com/watch?v=ePFbaU4htsQ" title="SFEIR Talks #10 - Svelte : un concurrent de poids face à React-Angular-Vue ?
+" target="_blank"><figure>
+  <img src="http://img.youtube.com/vi/ePFbaU4htsQ/0.jpg" alt="SFEIR Talks #10 - Svelte : un concurrent de poids face à React-Angular-Vue ?
+"  />
+</figure></a></p>
+
+</div>
+</div>
+</article>
+</div>
+</main><script src="/js/dark-mode.js"></script>
+
+</body>
+</html>
