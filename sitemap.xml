@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://alexandrecantin.github.io/</loc>
-    <lastmod>2021-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-01T00:00:01+02:00</lastmod>
+  </url><url>
+    <loc>https://alexandrecantin.github.io/posts/antisocial-11-novembre-pourquoi-antisocial/</loc>
+    <lastmod>2022-04-01T00:00:01+02:00</lastmod>
   </url><url>
     <loc>https://alexandrecantin.github.io/posts/</loc>
-    <lastmod>2021-08-02T00:00:00+00:00</lastmod>
+    <lastmod>2022-04-01T00:00:01+02:00</lastmod>
   </url><url>
     <loc>https://alexandrecantin.github.io/posts/svelte-un-concurrent-de-poids-face-a-react-vue-angular/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
