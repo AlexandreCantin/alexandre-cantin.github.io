@@ -1,7 +1,10 @@
 
-[data-theme="dark"] {
-  --txt-color: white;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --txt-color: white;
+  }
 }
+
 
 #titleonly a {
   font-size: 2.5rem;
