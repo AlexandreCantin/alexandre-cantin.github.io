@@ -1,4 +1,5 @@
-body {
+
+[data-theme="dark"] {
   --txt-color: white;
 }
 
